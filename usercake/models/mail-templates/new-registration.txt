@@ -1,0 +1,8 @@
+Dear #USERNAME#,
+
+Thank you for signing up for a account at BlueDanubeWine.com.
+#ACTIVATION-MESSAGE
+
+Kind Regards,
+
+The Blue Danube Wine Co. team
