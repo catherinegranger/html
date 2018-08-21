@@ -1,0 +1,183 @@
+{include file="modules/nav_wineries.tpl"}
+
+<div class="bdgridcontent9">
+<article id="wine">
+{if $wine_name}
+{include file="modules/mod_succerrors.tpl"}
+{if $image}
+{if $other_image || $is_label}
+<div id="wine_other_img">
+<img class="other_product" src="/img/bottles/{$vint_id}.jpg" alt="{$wine_name}" />
+</div>
+{else}
+<div id="wine_img">
+<img class="magnify" src="/img/bottles/{$vint_id}.jpg" alt="{$wine_name}" />
+</div>
+{/if}
+{else}
+<div id="wine_img">
+<img src="/img/bottles/0.jpg" alt="No Bottle Image"  />
+</div>
+{/if}
+
+<div id="wine_buy">
+<header>
+<h1 title="{$wine_header}">{$wine_header}</h1>
+</header>
+
+<div id="wine_detail">
+{if $winery_name} 
+<label>Winery:</label>
+{if $wine_full_appellation}
+<a href="/winery/{$wyweb_name}/" title="{$winery_name}">{$winery_name}</a>, 
+{if $appellation} 
+{$appellation} {if $wine_country_full_name}(<a href="/regions/{$wine_country_web_name}/" title="{$wine_country_full_name}">{$wine_country_full_name}</a>){/if}
+{else}
+{if $wine_country_full_name}<a href="/regions/{$wine_country_web_name}/" title="{$wine_country_full_name}">{$wine_country_full_name}</a>{/if}
+{/if}
+{else}
+<a href="/winery/{$wyweb_name}/" title="{$winery_name}">{$winery_name}</a> 
+{/if}
+<br>
+{/if}
+{if $type_name} 
+<label>Type:</label>
+{$type_name} {if $alcohol > 0} ({$alcohol}%) {/if} {if $organic}, Organic {/if}<br>
+{/if}
+{if $varietals} 
+<label>Varietals:</label>
+{section name=bit loop=$varietals}
+{if !$smarty.section.bit.last}
+{if $varietals[bit].resource_id > 0}
+<a href="/resources/grape_varietals/{$varietals[bit].resource_webname}/" title="{$varietals[bit].name}">{$varietals[bit].name}</a>,
+{else}
+{$varietals[bit].name},
+{/if}
+{else}
+{if $varietals[bit].resource_id > 0}
+<a href="/resources/grape_varietals/{$varietals[bit].resource_webname}/" title="{$varietals[bit].name}">{$varietals[bit].name}</a>
+{else}
+{$varietals[bit].name}
+{/if}
+{/if}
+{/section}
+{/if}
+{if $size > 0 && $size != 750} 
+<br><label>Size:</label>
+{if $size == 1000}1l {else} {$size}ml {/if}
+{/if}
+</div>
+
+<div id="wine_price">
+{if $can_show_retail_price}
+{if $actual_price > '0'}
+<label>Price:</label>
+{if $actual_sale > '0'}<strike>${$actual_price}</strike> <span class="bld rdd">${$actual_sale}</span>{else}${$actual_price}{/if}
+ {if $low_inventory} - <b>low inventory</b>{/if}
+{if $in_stock}
+{if ($wineclub_member && (($wineclub_price > 0) || ($wineclub_sale > 0))) } <div class="bld">Exclusive offer for Vino Danubia Members</div> {/if}
+<div class="bld grn">In Stock.</div>
+<form method="post" action="/add_to_cart/">
+<label>Quantity:</label>
+<input type="hidden" name="grup" value="{$grup}" />
+<input type="hidden" name="bottles" value="{$bottles}" />
+<input type="hidden" name="shipping" value="{$shipping}" />
+<input type="hidden" name="vint_id" value="{$vint_id}"  />
+<input type="hidden" name="product_id" value="{$product_id}"  />
+<input type="hidden" name="item_type" value="{$item_type}"  />
+<input type="hidden" name="year" value="{$year}"  />
+<input type="hidden" name="size" value="{$size}"  />
+<input type="hidden" name="winery_id" value="{$wy_id}"  />
+<input type="hidden" name="winery_name" value="{$wy_name}"  />
+<input type="hidden" name="appellation" value="{$appellation}"  />
+<input type="hidden" name="vint_name" value="{$wine_name}"  />
+<input type="hidden" name="base_price" value="{$actual_price}"  />
+<input type="hidden" name="price" value="{if $actual_sale > '0'}{$actual_sale}{else}{$actual_price}{/if}"  />
+<input type="text" size="4" maxlength="6" name="quantity" value="1" />
+&nbsp;<button type="submit" title="Add to Cart" class="btn btn-sm btn-primary">Add to Cart</button>
+</form>
+<a href="/shipping/" target="_blank">View our Shipping Information</a>
+{else}
+<div class="bld rdd">Sorry, sold out</div>
+{/if}
+{else}
+Sorry, not available online
+{/if}
+{else}
+Please ckeck our Price List for availability and pricing
+{/if}
+</div>
+
+<div id="wine_social">
+<div id="wine_social_top"></div>
+<div id="social" style="width:90%;white-space:nowrap;">
+<ul>
+<li class="twit">
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bluedanubewine.com/wine/{$vint_id}" data-count="none" data-via="BlueDanubeWine">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+</li>
+
+<li class="goog"><g:plusone size="medium" annotation="none"></g:plusone></li>
+{literal}
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+{/literal}
+
+<li class="fb">
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.bluedanubewine.com%2Fwine%2F{$vint_id}&amp;send=false&amp;layout=button_count&amp;width=30&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21&amp;appId=278592638819082" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</li>
+</div>
+</div>
+
+</div>
+<div class="clean"></div>
+
+<div id="wine_notes">
+{if $notes}
+<b>Our Notes:</b> {$notes|regex_replace:"/[\n]/":"<br/>"}
+{/if}
+{if $reviews}
+<br><label>More Reviews:</label>
+{section name=rv loop=$reviews}
+<br><a href="{$reviews[rv].url}" target="_blank">{$reviews[rv].title}</a>
+{/section}
+{/if}
+
+{if $tech_file_name}
+<div><span style="margin-right:0.5em;"><a href="/techsheets/{$tech_file_name}" target="_blank">Download PDF Fact Sheet</a></span>
+<img  style="position:relative;top:1em;" src="/img/all/pdficon_large.png" alt="PDF icon" />
+</div>
+{/if}
+
+</div>
+
+{if $wines}
+{if $winery_name}
+<a href="/winery/{$wyweb_name}/" title="{$winery_name}"><h2 title="{$winery_name} Wines" class="rdd">All {$winery_name} Wines:</h2></a>
+{elseif $item_type > 0}
+<a href="/wines/books/" title="Books"><h2 title="Books and Mics." class="rdd">All Books &amp; Misc.:</h2></a>
+{else}
+<a href="/wines/samplers/" title="Samplers"><h2 title="Samplers and Gift Sets" class="rdd">All Samplers and Gift Sets:</h2></a>
+{/if}
+{include file="modules/mod_wines.tpl"}
+{/if}
+
+
+{assign var=head_title value=$wine_fullname|cat:' '|cat:$wine_full_appellation}
+
+{else}
+<div style="text-align:center;padding:5% 0%;">
+<b>We're sorry, it appears that your search didn't return any results.</b>
+<br />&nbsp;<br />
+Our inventory changes often, so please try again in the future.
+</div>
+{assign var=head_title value='Buy Wine Online'}
+{/if}
+
+</article>
+</div>
+<div class="clean"></div>

@@ -816,10 +816,12 @@ if (TRUE) {
     }
   }
 }
+$ca_customer =  ($recipient["state"] == 'CA') ? TRUE : FALSE ;
 $smarty->assign('order',$order);
 $smarty->assign('recipient',$recipient);
 $smarty->assign('items',$items);
 $smarty->assign('order_giftcard_paid',$order_giftcard_paid);
+$smarty->assign('ca_customer',$ca_customer);
 $smarty->assign('uc_successes',$successes);	
 $smarty->assign('uc_errors',$errors);
 $smarty->assign('uc_warnings',$warnings);
