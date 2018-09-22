@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-07-17 22:28:28
+/* Smarty version 3.1.30, created on 2018-09-12 18:11:00
   from "/var/www/html/smarty/templates/pages/billship.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b4e6d8ceb35d2_07930753',
+  'unifunc' => 'content_5b9956b46127e4_42730159',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e618df4ee55f1dc76c4e89a9fff72de20e3b63f' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/billship.tpl',
-      1 => 1531866483,
+      1 => 1536770821,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/mod_succerrors.tpl' => 1,
   ),
 ),false)) {
-function content_5b4e6d8ceb35d2_07930753 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b9956b46127e4_42730159 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_html_options')) require_once '/var/www/Smarty/libs/plugins/function.html_options.php';
 ?>
 <table class="buyprocess">
@@ -80,7 +80,7 @@ if (!is_callable('smarty_function_html_options')) require_once '/var/www/Smarty/
 <td><input type="text" size="20" maxlength="48" name="last_name" value="<?php echo $_smarty_tpl->tpl_vars['recipient']->value['last_name'];?>
 " /></td>
 </tr>
-<tr><td></td><td colspan="1" class="alignLeft itl">Adult signature required: we highly recommend shipping to a business address. <br>We cannot ship to PO Boxes.</td></tr>
+<tr><td></td><td colspan="1" class="alignLeft"><span class="pix13 bld">Adult signature required: we highly recommend<br> shipping to a business address.</span> <br><span class="itl">We cannot ship to PO Boxes.</span></td></tr>
 <tr>
 <td class="alignRight"><b>Address 1:</b></td>
 <td><input type="text" size="20" maxlength="48" name="address1" value="<?php echo $_smarty_tpl->tpl_vars['recipient']->value['address1'];?>
@@ -120,7 +120,7 @@ if (!is_callable('smarty_function_html_options')) require_once '/var/www/Smarty/
 " /></td>
 </tr>
 <tr>
-<td class="alignRight"><b>Include a Greeting Card:</b></td>
+<td class="alignRight"><b>Include Greeting Card:</b></td>
 <?php if ($_smarty_tpl->tpl_vars['order']->value['include_card']) {?>
 <td><input type="checkbox" name="include_card" value="include_card" checked > (Cost: <?php echo $_smarty_tpl->tpl_vars['greeting_card_cost']->value;?>
 )</td>
@@ -141,8 +141,9 @@ if (!is_callable('smarty_function_html_options')) require_once '/var/www/Smarty/
 <td><span ><textarea rows="5" cols="20" name="include_card_msg"><?php echo $_smarty_tpl->tpl_vars['order']->value['include_card_msg'];?>
 </textarea></span></td>
 </tr>
-<?php }
-if ($_smarty_tpl->tpl_vars['order']->value['include_card']) {?>
+<?php }?>
+<tr><td></td><td colspan="1" class="alignLeft"><span class="itl">In case of a gift, please indicate how to join gift recipient.</span></span></td></tr>
+<?php if ($_smarty_tpl->tpl_vars['order']->value['include_card']) {?>
 <tr>
 <td class="alignRight"><b>Special Instructions:</b></td>
 <td><textarea rows="3" cols="20" name="instructions"><?php echo $_smarty_tpl->tpl_vars['order']->value['instructions'];?>
@@ -151,7 +152,7 @@ if ($_smarty_tpl->tpl_vars['order']->value['include_card']) {?>
 <?php } else { ?>
 <tr>
 <td class="alignRight"><b>Special Instructions:</b></td>
-<td><textarea rows="6" cols="20" name="instructions"><?php echo $_smarty_tpl->tpl_vars['order']->value['instructions'];?>
+<td><textarea rows="3" cols="20" name="instructions"><?php echo $_smarty_tpl->tpl_vars['order']->value['instructions'];?>
 </textarea></td>
 </tr>
 <?php }?>
@@ -171,7 +172,7 @@ if ($_smarty_tpl->tpl_vars['order']->value['include_card']) {?>
 <td><input type="text" size="20" maxlength="48" name="ship_last_name" value="<?php echo $_smarty_tpl->tpl_vars['order']->value['last_name'];?>
 "  /></td>
 </tr>
-<tr><td></td><td colspan="1" class="alignLeft itl">Adult signature required: we highly recommend shipping to a business address. <br>We cannot ship to PO Boxes.</td></tr>
+<tr><td></td><td colspan="1" class="alignLeft"><span class="pix13 bld">Adult signature required: we highly recommend shipping to a business address.</span> <br><span class="itl">We cannot ship to PO Boxes.</span></td></tr>
 <tr>
 <td class="alignRight"><b>Address 1:</b></td>
 <td><input type="text" size="20" maxlength="48" name="ship_address1" value="<?php echo $_smarty_tpl->tpl_vars['order']->value['address1'];?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-07-17 22:51:17
+/* Smarty version 3.1.30, created on 2018-09-12 16:29:33
   from "/var/www/html/smarty/templates/pages/wines.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b4e72e5724990_55490066',
+  'unifunc' => 'content_5b993eedb32af7_19026609',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f2b052406e3043f1e607e87f4c06222a7b1a92a7' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/wines.tpl',
-      1 => 1531867869,
+      1 => 1536769705,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/nav_shop.tpl' => 1,
   ),
 ),false)) {
-function content_5b4e72e5724990_55490066 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b993eedb32af7_19026609 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_replace')) require_once '/var/www/Smarty/libs/plugins/modifier.replace.php';
 if (!is_callable('smarty_modifier_capitalize')) require_once '/var/www/Smarty/libs/plugins/modifier.capitalize.php';
 $_smarty_tpl->_subTemplateRender("file:modules/nav_shop.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -32,7 +32,7 @@ $_smarty_tpl->_subTemplateRender("file:modules/nav_shop.tpl", $_smarty_tpl->cach
 
 <article id="wines">
 
-<?php if (TRUE) {?>
+<?php if (FALSE) {?>
 <div class="alignCenter uchighlight bld">
 Please be aware that shipping during periods of extreme heat may damage your wine. Therefore, we will gladly hold your purchased wines until there are more moderate temperatures. Just leave us shipping instructions or contact us  at webshop @ bluedanubewine.com or +1 (650) 941-4699.
 </div>

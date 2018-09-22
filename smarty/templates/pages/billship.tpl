@@ -47,7 +47,7 @@
 <td class="alignRight"><b>Last Name:</b></td>
 <td><input type="text" size="20" maxlength="48" name="last_name" value="{$recipient.last_name}" /></td>
 </tr>
-<tr><td></td><td colspan="1" class="alignLeft itl">Adult signature required: we highly recommend shipping to a business address. <br>We cannot ship to PO Boxes.</td></tr>
+<tr><td></td><td colspan="1" class="alignLeft"><span class="pix13 bld">Adult signature required: we highly recommend<br> shipping to a business address.</span> <br><span class="itl">We cannot ship to PO Boxes.</span></td></tr>
 <tr>
 <td class="alignRight"><b>Address 1:</b></td>
 <td><input type="text" size="20" maxlength="48" name="address1" value="{$recipient.address1}" /></td>
@@ -80,7 +80,7 @@
 <td><input type="text" size="20" maxlength="48" name="phone" value="{$recipient.phone}" /></td>
 </tr>
 <tr>
-<td class="alignRight"><b>Include a Greeting Card:</b></td>
+<td class="alignRight"><b>Include Greeting Card:</b></td>
 {if $order.include_card}
 <td><input type="checkbox" name="include_card" value="include_card" checked > (Cost: {$greeting_card_cost})</td>
 {else}
@@ -98,6 +98,7 @@
 <td><span ><textarea rows="5" cols="20" name="include_card_msg">{$order.include_card_msg}</textarea></span></td>
 </tr>
 {/if}
+<tr><td></td><td colspan="1" class="alignLeft"><span class="itl">In case of a gift, please indicate how to join gift recipient.</span></span></td></tr>
 {if $order.include_card}
 <tr>
 <td class="alignRight"><b>Special Instructions:</b></td>
@@ -106,7 +107,7 @@
 {else}
 <tr>
 <td class="alignRight"><b>Special Instructions:</b></td>
-<td><textarea rows="6" cols="20" name="instructions">{$order.instructions}</textarea></td>
+<td><textarea rows="3" cols="20" name="instructions">{$order.instructions}</textarea></td>
 </tr>
 {/if}
 </table>
@@ -123,7 +124,7 @@
 <td class="alignRight"><b>Last Name:</b></td>
 <td><input type="text" size="20" maxlength="48" name="ship_last_name" value="{$order.last_name}"  /></td>
 </tr>
-<tr><td></td><td colspan="1" class="alignLeft itl">Adult signature required: we highly recommend shipping to a business address. <br>We cannot ship to PO Boxes.</td></tr>
+<tr><td></td><td colspan="1" class="alignLeft"><span class="pix13 bld">Adult signature required: we highly recommend shipping to a business address.</span> <br><span class="itl">We cannot ship to PO Boxes.</span></td></tr>
 <tr>
 <td class="alignRight"><b>Address 1:</b></td>
 <td><input type="text" size="20" maxlength="48" name="ship_address1" value="{$order.address1}" /></td>

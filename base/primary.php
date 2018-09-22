@@ -56,9 +56,9 @@ $shipping_states2 = array('AZ', 'CA','CO','CT','DC','FL', 'ID','IN','IA','KS', '
 			       'NE', 'NM','NV','NC','ND','OR','SD', 'VA','WA','WV','WI','WY');
 $shipping_states3 = array('CA','DC','WV');
 $shipping_states = array('AZ', 'CA','CO','CT','DC', 'FL','GA', 'ID','IN','IA','KS', 'LA','ME',
-                         'MD', 'MA',  'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 'SC','SD', 'TN', 'VA','WA','WV','WI','WY');
+                         'MA',  'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 'SC','SD', 'TN', 'VA','WA','WV','WI','WY');
 $shipping_states_club = array('AZ', 'CA','CO','CT','DC', 'FL','GA', 'ID','IL','IN','IA','KS', 'LA','ME',
-			     'MD', 'MA', 'MI', 'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 
+			      'MA', 'MI', 'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 
                              'SC','SD', 'TN','TX', 'VA','WA','WV','WI','WY');
 $shipping_states_club2 = array('AZ','CA','CO','CT','DC','FL','GA','ID','IL', 'IN','IA','KS','LA','MA','ME',
 			 'MD', 'MI', 'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR','PA', 'RI','SC','TN','TX',
@@ -2151,7 +2151,7 @@ function sendWelcomeMail($customer_name, $customer_email) { // depreciated
   $toc = "catherine@bluedanubewine.com";
   $header = 'From: Webshop@bluedanubewine.com';
   $subject = "Thank you for your order and welcome!";
-  $message = "Dear ".$customer_name.",\n\nCongratulations on your first Blue Danube Wine Co. order and welcome! You are now part of a thriving wine lover community. We hope you will enjoy our wines and we are looking forward to hearing from you again.\n\nShould you have any questions or need personalized services, don't hesitate to contact me at webshop@bluedanubewine.com or 707-731-1376.\n\nDo you know that we offer free shipping for 6-bottle orders through our Vino Danubia Wine Club? Join our club at https://www.bluedanubewine.com/wineclub/";
+  $message = "Dear ".$customer_name.",\n\nCongratulations on your first Blue Danube Wine Co. order and welcome! You are now part of a thriving wine lover community. We hope you will enjoy our wines and we are looking forward to hearing from you again.\n\nShould you have any questions or need personalized services, don't hesitate to contact me at webshop@bluedanubewine.com or 707-731-1376.";
   $message .="\n\nFollow us and share your experience on \n Facebook: https://www.facebook.com/BlueDanubeWine \n Twitter: https://twitter.com/BlueDanubeWine \n Instagram: https://www.instagram.com/bluedanubewine/ ";
   $message .="\n\nThank you again,\n\nGisele and the Blue Danube Wine Co. Team";
   $total_orders = 0;

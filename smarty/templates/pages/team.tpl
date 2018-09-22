@@ -81,21 +81,6 @@ In 2010, Eric worked harvest for a small Berkeley winery called &ldquo;A Donkey 
 <div class="clean"></div>
 
 <div class="team1">
-<img src="/img/all/orshi.jpg"/>
-</div>
-<div class="team2" id="orshi">
-<h3>Orshi Kiss</h3>
-<h5>Sales Manager - Southern California</h5>
-<h5>orshi @ bluedanubewine.com</h5>
-<h5>206-434-7873</h5>
-<p>
-Orshi, a former journalist for the largest Hungarian daily newspaper, moved to the States from her native Hungary in 2009. Marriage brought her to Seattle, where she discovered a passion for wine culture, and the drive to pursue higher wine education. She completed a winemaking and wine marketing certificate at the Northwest Wine Academy, and has achieved Level 3 of the Wine and Spirits Education Trust program.
-Orshi has been continually intrigued by the complexity of wine as an agricultural, technical, and cultural product landing her various positions in production, marketing and the tasting rooms of local wineries. Although she loves and appreciates wines from all over the world, Orshi finds it especially compelling to work with wines from Hungary and Central/Eastern Europe, which led her to Blue Danube Wine. She is ready to bring her skills, experiences, and knowledge to the Los Angeles and San Diego markets.
-</p>
-</div>
-<div class="clean"></div>
-
-<div class="team1">
 <img src="/img/all/miketesarek.jpg"/>
 </div>
 <div class="team2" id="mike">

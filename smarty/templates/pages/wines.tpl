@@ -4,7 +4,7 @@
 
 <article id="wines">
 
-{if TRUE}
+{if FALSE}
 <div class="alignCenter uchighlight bld">
 Please be aware that shipping during periods of extreme heat may damage your wine. Therefore, we will gladly hold your purchased wines until there are more moderate temperatures. Just leave us shipping instructions or contact us  at webshop @ bluedanubewine.com or +1 (650) 941-4699.
 </div>

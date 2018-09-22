@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-05-08 18:41:20
+/* Smarty version 3.1.30, created on 2018-09-19 23:11:46
   from "/var/www/html/smarty/templates/pages/team.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5af1ef505e7347_90967617',
+  'unifunc' => 'content_5ba2d7b2a229f8_23904365',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '26e13dfca4073b75406974b90874276cc8d0e61b' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/team.tpl',
-      1 => 1525804678,
+      1 => 1537398691,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5af1ef505e7347_90967617 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ba2d7b2a229f8_23904365 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <nav class="bdgridnav2 bdnavigation">
 <ul class="top-level">
@@ -100,21 +100,6 @@ At 15, Eric started washing dishes at The Ranch House in Ojai, California. After
 Moving to San Francisco in 2005 after two years living in Europe (Copenhagen & Rome), he found a job at Teatro Zinzanni, a 3-hour European cabaret meets Vaudevillian circus. <br/>
 After 6 years he left the circus to start an internship with Crushpad, a pioneering San Francisco Custom Crush that makes over 700 small lot wines for people all over the world.
 In 2010, Eric worked harvest for a small Berkeley winery called &ldquo;A Donkey and Goat,&rdquo; and did everything from grape to bottle including making his own barrel. D&G was named one of the Top 5 Winemakers to Watch in 2011 by the SF Chronicle. Eric joined Blue Danube in the Spring of 2011.
-</p>
-</div>
-<div class="clean"></div>
-
-<div class="team1">
-<img src="/img/all/orshi.jpg"/>
-</div>
-<div class="team2" id="orshi">
-<h3>Orshi Kiss</h3>
-<h5>Sales Manager - Southern California</h5>
-<h5>orshi @ bluedanubewine.com</h5>
-<h5>206-434-7873</h5>
-<p>
-Orshi, a former journalist for the largest Hungarian daily newspaper, moved to the States from her native Hungary in 2009. Marriage brought her to Seattle, where she discovered a passion for wine culture, and the drive to pursue higher wine education. She completed a winemaking and wine marketing certificate at the Northwest Wine Academy, and has achieved Level 3 of the Wine and Spirits Education Trust program.
-Orshi has been continually intrigued by the complexity of wine as an agricultural, technical, and cultural product landing her various positions in production, marketing and the tasting rooms of local wineries. Although she loves and appreciates wines from all over the world, Orshi finds it especially compelling to work with wines from Hungary and Central/Eastern Europe, which led her to Blue Danube Wine. She is ready to bring her skills, experiences, and knowledge to the Los Angeles and San Diego markets.
 </p>
 </div>
 <div class="clean"></div>
