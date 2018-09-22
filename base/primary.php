@@ -48,7 +48,6 @@ define('BDW_SHOW_WEBSHOP_ONLY', '3');
 define('MAGPIE_INPUT_ENCODING', 'UTF-8');
 define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
 $root_dir = dirname(__FILE__)."/..";
-require_once $root_dir.'/magpierss-0.72/rss_fetch.inc'; 
 require_once $root_dir.'/simplepie/autoloader.php';
 
 $bad_stuff = array('"',',','@','+','!','#','$','%','^','*',':',';','(',')','[',']','{','}','|','=','?','<','>','/','\\','`','~','&','\'','.','_','¿','¡');
@@ -1474,38 +1473,6 @@ function paginator($total,$dividend,$place,$page) {
   return $sub_menu;
 }
 	
-function getRSSItems($rss, $max_items) {
-  $regular_expression = '~src="[^"]*"~';
-  $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . ')[\'"][^>]*>.*</\\1>#isU'; 
-  $regular_expression3 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption alignright' . ')[\'"][^>]*>.*</\\1>#isU'; 
-  $items = array_slice($rss->items, 0, $maxitems);
-  $counter = 0;
-  foreach ($items as $item) {
-    $content = $item['content'];
-    $encoded = $content['encoded'];
-    $encoded2 = $content['encoded'];
-    preg_match_all($regular_expression, $encoded2, $allimages);
-    $imagecount = count($allimages[0]);
-    if ($imagecount > 0) {
-      $str1=$allimages[0][0];
-      $str1=trim($str1);
-      $len=strlen($str1);
-      $imgpath=substr_replace(substr($str1,5,$len),"",-1);
-    }
-    $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
-    $encoded3 = preg_replace($regular_expression3, '', $encoded); // right caption
-    $cleaned = strip_tags($encoded2); // center caption
-    $cleaned = removeAccent($cleaned);
-    $cleaned = trim($cleaned);
-    $rss_items[$counter++] = array('link' => $item['link'],
-				  'title' => $item['title'],
-				  'category' => $item['category'],
-				  'content' => $cleaned,
-				  'imagepath' => $imgpath,
-				  'description' => $item['description']);
-  }
-  return($rss_items);
-}
 	
 function randomArray($array, $length) {
   $total = count($array);
@@ -2005,124 +1972,93 @@ function getMainCategory($blog_category) {
   return(getCountryCategory($blog_category));
 }
 
-function fetchFixFeed($blogFeed) { // unused?
-  //$urlString = "http://www.bluedanubewine.com";
-  //$newUrlString = "https://www.bluedanubewine.com";
-  //$newFeed = str_replace($urlString, $newUrlString, $blogFeed);
-  $rss = fetch_rss($blogFeed);
-  return($rss);
+
+function getBlogItems($maxitems) {
+    return(getSimplePieBlogItems());
 }
 
-function getBlogFeed() { 
-    $rss = fetch_rss(BDW_FEED);
-    return($rss);
+function getRelatedBlogItems($maxitems, $name, $webname) {
+    return(getSimplePieRelatedBlogItems($name, $webname));
 }
 
-function getBlogItems2($maxitems) {
-  unset($_SESSION["feeditems"]);
-  if (!isset($_SESSION["feeditems"])) {
-    $rss = getBlogFeed();
+function getSimplePieFeedItems() { 
+    $feed = new SimplePie();
+    // Set the feed to process.
+    $feed->set_feed_url(BDW_FEED);
+    // Run SimplePie.
+    $feed->init();
+    // This makes sure that the content is sent to the browser as text/html and the UTF-8 character set (since we didn't change it).
+    $feed->handle_content_type();
+    $items = $feed->get_items();
+    return($items);
+}
+
+function getImagePath($item) { 
+    $content = $item->get_content(); 
     $regular_expression = '~src="[^"]*"~';
-    $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
-      ')[\'"][^>]*>.*</\\1>#isU'; 
-    $regular_expression3 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption alignright' . 
-      ')[\'"][^>]*>.*</\\1>#isU'; 
-    $items = array_slice($rss->items, 0, $maxitems);
-    $counter = 0;
-    foreach ($items as $item) {
-      $content = $item['content'];
-      $encoded = $content['encoded'];
-      $encoded2 = $content['encoded'];
-      preg_match_all($regular_expression, $encoded2, $allimages);
-      $imagecount = count($allimages[0]);
-      if ($imagecount > 0) {
-	$str1=$allimages[0][0];
-	$str1=trim($str1);
-	$len=strlen($str1);
-	//$imgpath=substr_replace(substr($str1,5,$len),"",-1);
-	$imgpath=substr($str1,5,$len);
-	$imgpath=str_replace('"', '', $imgpath);
-	if (strpos($imgpath, 'http://') !== FALSE)
-	  $imgpath=substr_replace($imgpath,"https",0,4);
-	if (strpos($imgpath, 'vinodanubia') !== FALSE) $imgpath=str_replace("vinodanubia","bluedanubewine",$imgpath);
-      }
-      $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
-      $encoded3 = preg_replace($regular_expression3, '', $encoded); // right caption
-      $cleaned = strip_tags($encoded2); // center caption
-      $cleaned = removeAccent($cleaned);
-      $cleaned = trim($cleaned);
-      $categories = $item['category'];
-      $clean_categories = removeAccent($categories);
-      $is_news = isNews($clean_categories);
-      $is_spotlight = isSpotlight($clean_categories);
-      $is_travel = isTravel($clean_categories);
-      $country_category = getCountryCategory($categories);
-      $main_category = getMainCategory($categories);
-      $feeditems[$counter++] = array('link' => $item['link'],
-				     'title' => $item['title'],
-				     'is_news' => $is_news,
-				     'is_spotlight' => $is_spotlight,
-				     'is_travel' => $is_travel,
-				     'country_category' => $country_category,
-				     'category' => $main_category,
-				     'content' => $cleaned,
-				     'imagepath' => $imgpath,
-				     'description' => $item['description']);
+    preg_match_all($regular_expression, $content, $allimages);
+    $imagecount = count($allimages[0]);
+    if ($imagecount > 0) {
+        $str1=$allimages[0][0];
+        $str1=trim($str1);
+        $len=strlen($str1);
+        $imgpath = substr($str1,5,$len);
+        $imgpath = str_replace('"', '', $imgpath);
     }
-    $_SESSION["feeditems"] = $feeditems;
-  }
-//  return($_SESSION["feeditems"]);
+    return($imgpath);
+}
+
+function getCleanCategoriesString($item) { 
+    $categories = $item->get_categories();
+    $categories_string = "";
+    if (is_array($categories)) {
+        foreach($categories as $category) {
+            $categories_string .= $category->get_label()." ";
+        }
+    }
+    return(removeAccent($categories_string));
+}
+
+function getSimplePieBlogItems() { 
+    $items = getSimplePieFeedItems();
+    foreach ($items as $item) {
+        $cleaned_categories = getCleanCategoriesString($item);
+        $feeditems[] = array(
+            'link' => $item->get_permalink(),
+            'title' => $item->get_title(),
+            'is_news' => isNews($cleaned_categories),
+            'is_spotlight' => isSpotlight($cleaned_categories),
+            'is_travel' => isTravel($cleaned_categories),
+            'country_category' => getCountryCategory($cleaned_categories),
+            'category' => getMainCategory($cleaned_categories),
+            'content' => $item->get_description(),
+            'imagepath' => getImagePath($item),
+            'description' => $item->get_description());
+    }
     return($feeditems);
 }
 
-function getRelatedBlogItems2($maxitems, $name, $webname) {
-  $clean_name = removeAccent($name);
-  $rss = getBlogFeed();
-  $regular_expression = '~src="[^"]*"~';
-  $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
-    ')[\'"][^>]*>.*</\\1>#isU'; 
-  $regular_expression3 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption alignright' . 
-    ')[\'"][^>]*>.*</\\1>#isU'; 
-  $items = array_slice($rss->items, 0, $maxitems);
-  $counter = 0;
-  foreach ($items as $item) {
-    $content = $item['content'];
-    $encoded = $content['encoded'];
-    $encoded2 = $content['encoded'];
-    preg_match_all($regular_expression, $encoded2, $allimages);
-    $imagecount = count($allimages[0]);
-    if ($imagecount > 0) {
-      $str1=$allimages[0][0];
-      $str1=trim($str1);
-      $len=strlen($str1);
-      $imgpath=substr_replace(substr($str1,5,$len),"",-1);
-      if (strpos($imgpath, 'http://') !== FALSE)
-	$imgpath=substr_replace($imgpath,"https",0,4);
-      if (strpos($imgpath, 'vinodanubia') !== FALSE)
-        $imgpath=str_replace("vinodanubia","bluedanubewine",$imgpath);
+function getSimplePieRelatedBlogItems($name, $webname) {
+    $clean_name = removeAccent($name);
+    $items = getSimplePieFeedItems();
+    foreach ($items as $item) {
+      $cleaned_categories = getCleanCategoriesString($item);
+      if ((isTagged($cleaned_categories, $clean_name)) || (isTagged($cleaned_categories, $webname))) {
+          $feeditems[] = array(
+                  'link' => $item->get_permalink(),
+                  'title' => $item->get_title(),
+                  'content' => $item->get_description(),
+                  'imagepath' => getImagePath($item),
+                  'description' => $item->get_description());
+      }
     }
-    $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
-    $encoded3 = preg_replace($regular_expression3, '', $encoded); // right caption
-    $cleaned = strip_tags($encoded2); // center caption
-    $cleaned = removeAccent($cleaned);
-    $cleaned = trim($cleaned);
-    $categories = $item['category'];
-    $clean_categories = removeAccent($categories);
-    if ((isTagged($clean_categories, $clean_name)) || (isTagged($clean_categories, $webname))) {
-      $feeditems[$counter++] = array('link' => $item['link'],
-				     'title' => $item['title'],
-				     'content' => $cleaned,
-				     'imagepath' => $imgpath,
-				     'description' => $item['description']);
-    }
-  }
-  return($feeditems);
+    return($feeditems);
 }
 
 
 function sendWelcomeEmail($customer_name, $customer_email, $user_id, $debug) {
   global $mydb;
-  $isWineClubMember = isWineClubMemberId($user_id);
+  //$isWineClubMember = isWineClubMemberId($user_id);
   $to = $cutomer_email;
   $toc = "catherine@bluedanubewine.com";
   $header = 'From: Webshop@bluedanubewine.com';
@@ -2188,26 +2124,8 @@ function getAuthorizeNetKey() {
     return(0);
 }
 
-function getBlogItems($maxitems) {
-    return(getSimplePieBlogItems());
-}
 
-function getRelatedBlogItems($maxitems, $name, $webname) {
-    return(getSimplePieRelatedBlogItems($name, $webname));
-}
-
-function getSimplePieFeedItems() { 
-    $feed = new SimplePie();
-    // Set the feed to process.
-    $feed->set_feed_url(BDW_FEED);
-    // Run SimplePie.
-    $feed->init();
-    // This makes sure that the content is sent to the browser as text/html and the UTF-8 character set (since we didn't change it).
-    $feed->handle_content_type();
-    $items = $feed->get_items();
-    return($items);
-}
-function getSimplePieBlogItems() { 
+function getSimplePieBlogItems2() { 
     $regular_expression = '~src="[^"]*"~';
     $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
         ')[\'"][^>]*>.*</\\1>#isU'; 
@@ -2227,48 +2145,41 @@ function getSimplePieBlogItems() {
             $len=strlen($str1);
             $imgpath = substr($str1,5,$len);
             $imgpath = str_replace('"', '', $imgpath);
+            $imgpath = getImagePath($item);
             //if (strpos($imgpath, 'http://') !== FALSE)  $imgpath=substr_replace($imgpath,"https",0,4);
             $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
-            $cleaned = strip_tags($encoded2); // center caption
-            $cleaned = removeAccent($cleaned);
-            $cleaned = trim($cleaned);
-            $categories = $item->get_categories();
-            $categories_string = "";
-            if (is_array($categories)) {
-                foreach($categories as $category) {
-                    $categories_string .= $category->get_label()." ";
-                }
-            }
-            $cleaned_categories = removeAccent($categories_string);
-            $is_news = isNews($categories_string);
+            $cleaned_content = strip_tags($encoded2); // center caption
+            $cleaned_content = removeAccent($cleaned_content);
+            $cleaned_content = trim($cleaned_content);
+            $cleaned_categories = getCleanCategoriesString($item);
+            $is_news = isNews($cleaned_categories);
             $is_spotlight = isSpotlight($cleaned_categories);
             $is_travel = isTravel($cleaned_categories);
             $country_category = getCountryCategory($cleaned_categories);
             $main_category = getMainCategory($cleaned_categories);
             $feeditems[] = array('link' => $item->get_permalink(),
-            'title' => $item->get_title(),
-            'is_news' => $is_news,
-            'is_spotlight' => $is_spotlight,
-            'is_travel' => $is_travel,
-            'country_category' => $country_category,
-            'category' => $main_category,
-            'content' => $cleaned,
-            'imagepath' => $imgpath,
-            'description' => $item->get_description());
+                                 'title' => $item->get_title(),
+                                 'is_news' => $is_news,
+                                 'is_spotlight' => $is_spotlight,
+                                 'is_travel' => $is_travel,
+                                 'country_category' => $country_category,
+                                 'category' => $main_category,
+                                 'content' => $cleaned_content,
+                                 'imagepath' => $imgpath,
+                                 'description' => $item->get_description());
         }
     }
     return($feeditems);
 }
 
-function getSimplePieRelatedBlogItems($name, $webname) {
+
+function getSimplePieRelatedBlogItems2($name, $webname) {
     $clean_name = removeAccent($name);
     $items = getSimplePieFeedItems();
     $regular_expression = '~src="[^"]*"~';
-  $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
+    $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
       ')[\'"][^>]*>.*</\\1>#isU'; 
-  $regular_expression3 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption alignright' . 
-      ')[\'"][^>]*>.*</\\1>#isU'; 
-  foreach ($items as $item) {
+    foreach ($items as $item) {
       $content = $item->get_content(); 
       $encoded = $content;
       $encoded2 = $content;
@@ -2280,23 +2191,16 @@ function getSimplePieRelatedBlogItems($name, $webname) {
           $len=strlen($str1);
           $imgpath=substr_replace(substr($str1,5,$len),"",-1);
           $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
-          $cleaned = strip_tags($encoded2); // center caption
-          $cleaned = removeAccent($cleaned);
-          $cleaned = trim($cleaned);
-          $categories = $item->get_categories();
-          $categories_string = "";
-          if (is_array($categories)) {
-              foreach($categories as $category) {
-                  $categories_string .= $category->get_label()." ";
-              }
-          }
-          $cleaned_categories = removeAccent($categories_string);
+          $cleaned_content = strip_tags($encoded2); // center caption
+          $cleaned_content = removeAccent($cleaned_content);
+          $cleaned_content = trim($cleaned_content);
+          $cleaned_categories = getCleanCategoriesString($item);
           if ((isTagged($cleaned_categories, $clean_name)) || (isTagged($cleaned_categories, $webname))) {
               $feeditems[] = array('link' => $item->get_permalink(),
-              'title' => $item->get_title(),
-              'content' => $cleaned,
-              'imagepath' => $imgpath,
-              'description' => $item->get_description());
+                                   'title' => $item->get_title(),
+                                   'content' => $cleaned_content,
+                                   'imagepath' => $imgpath,
+                                   'description' => $item->get_description());
           }
       }
   }
