@@ -49,6 +49,7 @@ define('MAGPIE_INPUT_ENCODING', 'UTF-8');
 define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
 $root_dir = dirname(__FILE__)."/..";
 require_once $root_dir.'/magpierss-0.72/rss_fetch.inc'; 
+require_once $root_dir.'/simplepie/autoloader.php';
 
 $bad_stuff = array('"',',','@','+','!','#','$','%','^','*',':',';','(',')','[',']','{','}','|','=','?','<','>','/','\\','`','~','&','\'','.','_','¿','¡');
 
@@ -2017,7 +2018,7 @@ function getBlogFeed() {
     return($rss);
 }
 
-function getBlogItems($maxitems) {
+function getBlogItems2($maxitems) {
   unset($_SESSION["feeditems"]);
   if (!isset($_SESSION["feeditems"])) {
     $rss = getBlogFeed();
@@ -2074,7 +2075,7 @@ function getBlogItems($maxitems) {
     return($feeditems);
 }
 
-function getRelatedBlogItems($maxitems, $name, $webname) {
+function getRelatedBlogItems2($maxitems, $name, $webname) {
   $clean_name = removeAccent($name);
   $rss = getBlogFeed();
   $regular_expression = '~src="[^"]*"~';
@@ -2185,6 +2186,121 @@ function getAuthorizeNetKey() {
         return($config["key"]);
     }
     return(0);
+}
+
+function getBlogItems($maxitems) {
+    return(getSimplePieBlogItems());
+}
+
+function getRelatedBlogItems($maxitems, $name, $webname) {
+    return(getSimplePieRelatedBlogItems($name, $webname));
+}
+
+function getSimplePieFeedItems() { 
+    $feed = new SimplePie();
+    // Set the feed to process.
+    $feed->set_feed_url(BDW_FEED);
+    // Run SimplePie.
+    $feed->init();
+    // This makes sure that the content is sent to the browser as text/html and the UTF-8 character set (since we didn't change it).
+    $feed->handle_content_type();
+    $items = $feed->get_items();
+    return($items);
+}
+function getSimplePieBlogItems() { 
+    $regular_expression = '~src="[^"]*"~';
+    $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
+        ')[\'"][^>]*>.*</\\1>#isU'; 
+    $regular_expression3 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption alignright' . 
+        ')[\'"][^>]*>.*</\\1>#isU'; 
+    $feedString = "";
+    $items = getSimplePieFeedItems();
+    foreach ($items as $item) {
+        $content = $item->get_content(); 
+        $encoded = $content;
+        $encoded2 = $content;
+        preg_match_all($regular_expression, $content, $allimages);
+        $imagecount = count($allimages[0]);
+        if ($imagecount > 0) {
+            $str1=$allimages[0][0];
+            $str1=trim($str1);
+            $len=strlen($str1);
+            $imgpath = substr($str1,5,$len);
+            $imgpath = str_replace('"', '', $imgpath);
+            //if (strpos($imgpath, 'http://') !== FALSE)  $imgpath=substr_replace($imgpath,"https",0,4);
+            $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
+            $cleaned = strip_tags($encoded2); // center caption
+            $cleaned = removeAccent($cleaned);
+            $cleaned = trim($cleaned);
+            $categories = $item->get_categories();
+            $categories_string = "";
+            if (is_array($categories)) {
+                foreach($categories as $category) {
+                    $categories_string .= $category->get_label()." ";
+                }
+            }
+            $cleaned_categories = removeAccent($categories_string);
+            $is_news = isNews($categories_string);
+            $is_spotlight = isSpotlight($cleaned_categories);
+            $is_travel = isTravel($cleaned_categories);
+            $country_category = getCountryCategory($cleaned_categories);
+            $main_category = getMainCategory($cleaned_categories);
+            $feeditems[] = array('link' => $item->get_permalink(),
+            'title' => $item->get_title(),
+            'is_news' => $is_news,
+            'is_spotlight' => $is_spotlight,
+            'is_travel' => $is_travel,
+            'country_category' => $country_category,
+            'category' => $main_category,
+            'content' => $cleaned,
+            'imagepath' => $imgpath,
+            'description' => $item->get_description());
+        }
+    }
+    return($feeditems);
+}
+
+function getSimplePieRelatedBlogItems($name, $webname) {
+    $clean_name = removeAccent($name);
+    $items = getSimplePieFeedItems();
+    $regular_expression = '~src="[^"]*"~';
+  $regular_expression2 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption aligncenter' . 
+      ')[\'"][^>]*>.*</\\1>#isU'; 
+  $regular_expression3 =  '#<(\w+)\s[^>]*(class|id)\s*=\s*[\'"](' . 'wp-caption alignright' . 
+      ')[\'"][^>]*>.*</\\1>#isU'; 
+  foreach ($items as $item) {
+      $content = $item->get_content(); 
+      $encoded = $content;
+      $encoded2 = $content;
+      preg_match_all($regular_expression, $content, $allimages);
+      $imagecount = count($allimages[0]);
+      if ($imagecount > 0) {
+          $str1=$allimages[0][0];
+          $str1=trim($str1);
+          $len=strlen($str1);
+          $imgpath=substr_replace(substr($str1,5,$len),"",-1);
+          $encoded2 = preg_replace($regular_expression2, '', $encoded); // center caption
+          $cleaned = strip_tags($encoded2); // center caption
+          $cleaned = removeAccent($cleaned);
+          $cleaned = trim($cleaned);
+          $categories = $item->get_categories();
+          $categories_string = "";
+          if (is_array($categories)) {
+              foreach($categories as $category) {
+                  $categories_string .= $category->get_label()." ";
+              }
+          }
+          $cleaned_categories = removeAccent($categories_string);
+          if ((isTagged($cleaned_categories, $clean_name)) || (isTagged($cleaned_categories, $webname))) {
+              $feeditems[] = array('link' => $item->get_permalink(),
+              'title' => $item->get_title(),
+              'content' => $cleaned,
+              'imagepath' => $imgpath,
+              'description' => $item->get_description());
+          }
+      }
+  }
+  return($feeditems);
 }
 
 ?>
