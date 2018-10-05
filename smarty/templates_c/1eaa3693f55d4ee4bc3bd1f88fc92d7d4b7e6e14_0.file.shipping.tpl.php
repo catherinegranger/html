@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-06-15 22:43:46
+/* Smarty version 3.1.30, created on 2018-10-05 16:48:41
   from "/var/www/html/smarty/templates/pages/shipping.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b2441229bfe61_88366232',
+  'unifunc' => 'content_5bb795e9b124b0_99176082',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1eaa3693f55d4ee4bc3bd1f88fc92d7d4b7e6e14' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/shipping.tpl',
-      1 => 1529102563,
+      1 => 1538757874,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b2441229bfe61_88366232 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bb795e9b124b0_99176082 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <article id="shipping">
 <h1>Shipping Information</h1>
@@ -86,9 +86,8 @@ Prices &amp; times for UPS Ground depend on the distance from the San Francisco 
 
 <h2>Where We Ship To</h2>
 
-<p>
-Due to new shipping policies from our shipping carrier, we can only ship to Arizona, California, Colorado, Connecticut, District of Columbia, Florida, Idaho, Indiana, Iowa, Kansas, Louisiana, Minnesota, Nebraska, New Mexico, Nevada, North Carolina, North Dakota, Oregon, South Dakota, Virginia, Washington, West Virginia, Wisconsin, Wyoming.
-</p>
+<p>Due to new shipping policies from our shipping carrier, we can only ship to Arizona, California, Colorado, Connecticut, District of Columbia, Idaho, Indiana, Iowa, Kansas, Louisiana, Minnesota, Nebraska, New Mexico, Nevada, North Carolina, North Dakota, Oregon, South Dakota, Virginia, Washington, West Virginia, Wisconsin, Wyoming.</p>
+
 <p>
 If you live in a state that does not allow direct shipment of wine, you can give us an alternative shipping address in a state where direct shipping is allowed. Contact our customer service at webshop @ bluedanubewine.com or +1 (650) 941-4699 for more information.
 </p>

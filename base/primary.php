@@ -37,16 +37,14 @@ define('BDW_ADULT_SIGNATURE', '5');
 define('BDW_CA_TAX_RATE', '9');
 define('BDW_LOCAL_DELIVERY', '10');
 define('BDW_CARD_COST', '5');
-define('BDW_SHIP_STATES', 'Arizona, California, Colorado, Connecticut, District of Columbia, Florida, Idaho, Indiana, Iowa, Kansas, Louisiana, Minnesota, ​Nebraska, New Mexico, Nevada, North Carolina, North Dakota, Oregon, South Dakota, Virginia, Washington, West Virginia, Wisconsin, Wyoming.');
-define('BDW_NO_SHIP_STATES', 'Alabama, Alaska, Arkansas, Delaware, Georgia, Hawwaii, Illinois, Kentucky, Maine, Maryland, Massachusetts, Michigan,  Mississipi, Missouri, Montana, ​New Hampshire, New Jersey, New York, Ohio, Oklahoma, Pennsylvania, Rhode Island, South Carolina, Tennessee, Texas, Utah, Vermont.');
+define('BDW_SHIP_STATES', 'Arizona, California, Colorado, Connecticut, District of Columbia, Idaho, Indiana, Iowa, Kansas, Louisiana, Minnesota, ​Nebraska, New Mexico, Nevada, North Carolina, North Dakota, Oregon, South Dakota, Virginia, Washington, West Virginia, Wisconsin, Wyoming.');
+define('BDW_NO_SHIP_STATES', 'Alabama, Alaska, Arkansas, Delaware, Georgia, Florida, Hawwaii, Illinois, Kentucky, Maine, Maryland, Massachusetts, Michigan,  Mississipi, Missouri, Montana, ​New Hampshire, New Jersey, New York, Ohio, Oklahoma, Pennsylvania, Rhode Island, South Carolina, Tennessee, Texas, Utah, Vermont.');
 define('BDW_NO_SHIP_STATES2', 'Alabama, Alaska, Arizona, Arkansas, Colorado, Connecticut, Delaware, Florida, Georgia, Hawwaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota,  Mississipi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, Wisconsin, Wyoming.');
 define('BDW_SHOW_ALL', '0');
 define('BDW_SHOW_WEBSHOP_CA_NY', '1');
 define('BDW_SHOW_WEBSHOP_CA', '2');
 define('BDW_SHOW_WEBSHOP_ONLY', '3');
 
-define('MAGPIE_INPUT_ENCODING', 'UTF-8');
-define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
 $root_dir = dirname(__FILE__)."/..";
 require_once $root_dir.'/simplepie/autoloader.php';
 
@@ -55,7 +53,7 @@ $bad_stuff = array('"',',','@','+','!','#','$','%','^','*',':',';','(',')','[','
 $shipping_states2 = array('AZ', 'CA','CO','CT','DC','FL', 'ID','IN','IA','KS', 'LA','MN', 
 			       'NE', 'NM','NV','NC','ND','OR','SD', 'VA','WA','WV','WI','WY');
 $shipping_states3 = array('CA','DC','WV');
-$shipping_states = array('AZ', 'CA','CO','CT','DC', 'FL','GA', 'ID','IN','IA','KS', 'LA','ME',
+$shipping_states = array('AZ', 'CA','CO','CT','DC', 'ID','IN','IA','KS', 'LA','ME',
                          'MA',  'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 'SC','SD', 'TN', 'VA','WA','WV','WI','WY');
 $shipping_states_club = array('AZ', 'CA','CO','CT','DC', 'FL','GA', 'ID','IL','IN','IA','KS', 'LA','ME',
 			      'MA', 'MI', 'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 
@@ -76,7 +74,7 @@ $problem_states = array();
 $problem_states2 = array('MI','TX','PA');
 
 
-$years = array('','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015', '2016', '2017', '2018', '2019', '2020', '2021');
+$years = array('','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'. '2023');
 	
 $scodes = array('Declined by Customer','Declined by BDW','Paid Authorize','Shipped','Discard','New Order','Invoiced', 'Authorize Payment Declined','Suspended by Customer', 'Paid QuickBooks', 'Paid Other', 'Partially Shipped', 'Ship Later', 'Backlog', 'Weather Delay','Damaged', 'Re-ship', 'Returned to BDW','Contacted by BDW','THub Download Failed', 'Partially Payed','Paid Gift Card', 'Gift Card Maxed Out','Duplicate for Paid Authorize');
 
