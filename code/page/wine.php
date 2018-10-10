@@ -18,24 +18,24 @@ $c_id = 0; // winery navigation
 $sql = "SELECT *, v.name AS wine_name, t.name AS type_name, wy.name AS wy_name, wy.web_name AS wyweb_name";
 $sql .= " FROM vintage AS v, winery AS wy, country_code AS c, type AS t";
 $sql .= " WHERE v.wy_id = wy.wy_id AND wy.c_id = c.c_id AND v.type_id = t.type_id";
-$sql .= " AND v.deleted = '0' AND v.vint_id = '".$vintage_id."'";
+$sql .= " AND v.deleted = '0' AND v.inactive = '0' AND wy.deleted = '0' AND wy.inactive = '0' AND v.vint_id = '".$vintage_id."'";
 
 $result = $mydb->runSql($sql);
-$row = $mydb->getAssoc($result);
+if ($result) $row = $mydb->getAssoc($result);
 if ((!is_array($row)) && ($two == 'sampler')) { // no type
   $sql = "SELECT *, v.name AS wine_name,  wy.name AS wy_name, wy.web_name AS wyweb_name";
   $sql .= " FROM vintage AS v, winery AS wy, country_code AS c";
   $sql .= " WHERE v.wy_id = wy.wy_id AND wy.c_id = c.c_id ";
-  $sql .= " AND v.deleted = '0' AND v.vint_id = '".$vintage_id."'";
+  $sql .= " AND v.deleted = '0' AND v.inactive = '0' AND wy.deleted = '0' AND wy.inactive = '0' AND v.vint_id = '".$vintage_id."'";
 }
 $result = $mydb->runSql($sql);
-$row = $mydb->getAssoc($result);
+if ($result) $row = $mydb->getAssoc($result);
 if (!is_array($row)) { // no winery or other item?
   $sql = "SELECT *, v.name AS wine_name ";
   $sql .= " FROM vintage AS v";
-  $sql .= " WHERE v.deleted = '0' AND v.vint_id = '".$vintage_id."'";
+  $sql .= " WHERE v.deleted = '0' AND v.inactive = '0' AND v.vint_id = '".$vintage_id."'";
   $result = $mydb->runSql($sql);
-  $row = $mydb->getAssoc($result);
+  if ($result) $row = $mydb->getAssoc($result);
 }
 if (is_array($row)) {
   $in_stock = $row["stock"];
@@ -97,79 +97,78 @@ if (is_array($row)) {
   $smarty->assign('pretty_year_size', $pretty_year_size);
   $smarty->assign('in_stock', $in_stock);
   foreach($row as $key => $value) {
-    $smarty->assign(${key},$value);
+    $smarty->assign($key,$value);
   }
 }
 $sql = "SELECT resource_id, varietal.name AS varietal_name, friendly FROM var_vint, varietal, vintage ";
 $sql .= " WHERE var_vint.v_id = varietal.v_id AND var_vint.vint_id = vintage.vint_id ";
 $sql .= " AND vintage.vint_id = '".$vintage_id."'";
 $result = $mydb->runSql($sql);
-$counter = 0;
-while ($row = $mydb->getAssoc($result)) {
-  $resource_id = $row["resource_id"];
-  $resourcesql = "SELECT resource.web_name AS resource_webname FROM resource ";
-  $resourcesql .= " WHERE resource.r_id = '".$resource_id."'";
-  $resourceresult = $mydb->runSql($resourcesql);
-  $resourcerow = $mydb->getAssoc($resourceresult);
-  $varietal_title = $varietal_title." ".$row["varietal_name"];
-  $varietals[$counter++] = array('name' => $row["varietal_name"],
+if ($result) {
+    while ($row = $mydb->getAssoc($result)) {
+        $resource_id = $row["resource_id"];
+        $resourcesql = "SELECT resource.web_name AS resource_webname FROM resource ";
+        $resourcesql .= " WHERE resource.r_id = '".$resource_id."'";
+        $resourceresult = $mydb->runSql($resourcesql);
+        if ($resourceresult) $resourcerow = $mydb->getAssoc($resourceresult);
+        if ($resourcerow) $resource_webname =  $resourcerow["resource_webname"];
+        else $resource_webname = "";
+        $varietal_title = $varietal_title." ".$row["varietal_name"];
+        $varietals[] = array('name' => $row["varietal_name"],
 				 'friendly' => $row["friendly"],
 				 'resource_id' => $row["resource_id"],
-				 'resource_webname' => $resourcerow["resource_webname"]
+                 'resource_webname' => $resource_webname
 				 );
+    }
+    $smarty->assign('varietals',$varietals);
+    $smarty->assign('varietal_title',$varietal_title);
 }
-$smarty->assign('varietals',$varietals);
-$smarty->assign('varietal_title',$varietal_title);
-
 $sql = "SELECT title, url, rev_id FROM vint_review WHERE vint_id ='".$vintage_id."'";
 $result = $mydb->runSql($sql);
-$counter = 0;
-while ($row = $mydb->getAssoc($result)) {
-  $reviews[$counter++] = array('title' => $row["title"],
+if ($result) {
+    while ($row = $mydb->getAssoc($result)) {
+        $reviews[] = array('title' => $row["title"],
 			       'url' => $row["url"],
 			       'rev_id' => $row["rev_id"]);
+    }
+    $smarty->assign('reviews',$reviews);
 }
-$smarty->assign('reviews',$reviews);
-
-$wineweb_name = str_replace("'s",'s',$wineweb_name);
-$wineweb_name = prettyString($wine_name,$bad_stuff);
-$wineweb_name = unSlav($wineweb_name);
-$wineweb_name = unSpan($wineweb_name);
-$wineweb_name = unGerm($wineweb_name);
-$wineweb_name = unHun($wineweb_name);
-$wineweb_name = str_replace(' ','_',$wineweb_name);
-$complete_name = strtolower($wyweb_name)."_".strtolower($wineweb_name);
-$remove[] = "'";
-$remove[] = '"';
-$complete_name = str_replace( $remove, "", $complete_name);
-if ($year == 0)
-  $tech_file_new_name = $complete_name.'.pdf';
-else
-  $tech_file_new_name = $complete_name."_".$year.'.pdf';
-$wine_file_dir = dirname(__FILE__)."/../../techsheets/";
-$new_tech_file = $wine_file_dir.$tech_file_new_name;
-if (file_exists($new_tech_file)) {
-  $tech_file_name = $tech_file_new_name;
+if ($wine_name) {
+    $wineweb_name = str_replace("'s",'s',$wineweb_name);
+    $wineweb_name = prettyString($wine_name,$bad_stuff);
+    $wineweb_name = unSlav($wineweb_name);
+    $wineweb_name = unSpan($wineweb_name);
+    $wineweb_name = unGerm($wineweb_name);
+    $wineweb_name = unHun($wineweb_name);
+    $wineweb_name = str_replace(' ','_',$wineweb_name);
+    $complete_name = strtolower($wyweb_name)."_".strtolower($wineweb_name);
+    $remove[] = "'";
+    $remove[] = '"';
+    $complete_name = str_replace( $remove, "", $complete_name);
+    if ($year == 0)
+        $tech_file_new_name = $complete_name.'.pdf';
+    else
+        $tech_file_new_name = $complete_name."_".$year.'.pdf';
+    $wine_file_dir = dirname(__FILE__)."/../../techsheets/";
+    $new_tech_file = $wine_file_dir.$tech_file_new_name;
+    if (file_exists($new_tech_file)) {
+        $tech_file_name = $tech_file_new_name;
+    }
+    $smarty->assign('tech_file_name', $tech_file_name);
+    $smarty->assign('tech_file_new_name', $tech_file_new_name);
+    $smarty->assign('tech_sheet_name', $new_tech_file);
+    $smarty->assign('result', $result);
+    $smarty->assign('wy_name', $wy_name);
+    $smarty->assign('other_image', TRUE);
 }
-else {
-  //$tech_file_name = $tech_file_new_name;
-}
-$smarty->assign('tech_file_name', $tech_file_name);
-$smarty->assign('tech_file_new_name', $tech_file_new_name);
-$smarty->assign('tech_sheet_name', $new_tech_file);
-$smarty->assign('result', $result);
-$smarty->assign('wy_name', $wy_name);
-
-$smarty->assign('other_image', TRUE);
-
 if  ($wy_name) {
   $smarty->assign('other_image', FALSE);
   $sql = "SELECT winery.wy_id AS winery_id, winery.name AS winery, winery.web_name AS wyweb_name, vint_id, product_id, item_type, vintage.name AS vint_name, image, notes, price, sale, wineclub_price, wineclub_sale, year, size, low_inventory, stock, grup, bottles, shipping, appellation, is_label FROM winery, vintage WHERE";
-  $sql .= " winery.wy_id = vintage.wy_id AND winery.web_name = '".$wyweb_name."' AND vintage.online_store = '1' AND vintage.stock = '1' AND vintage.deleted = '0'";
+  $sql .= " winery.wy_id = vintage.wy_id AND winery.web_name = '".$wyweb_name."' AND vintage.online_store = '1' AND vintage.stock = '1' AND vintage.inactive = '0' AND vintage.deleted = '0'";
   $sql .= getViewableVintageQuery();
   $sql .= " ORDER BY vintage.name, vintage.year";
   $result = $mydb->runSql($sql);
-  while ($row = $mydb->getAssoc($result)) {
+  while ($result && ($row = $mydb->getAssoc($result))) {
     if ($row["item_type"] == BDW_LINE_ITEM_WINE) {
       $vintage_length = strlen($row["vint_name"]);
       if ($row["sale"] > 0)
@@ -208,9 +207,9 @@ if  ($wy_name) {
 else if ($item_type > 0) {
   $sql = "SELECT *, vintage.name AS vintage_name ";
   $sql .= " FROM vintage ";
-  $sql .= " WHERE vintage.deleted = '0'  AND vintage.online_store = '1' AND  vintage.stock = '1' AND vintage.item_type > 0 ";
+  $sql .= " WHERE vintage.deleted = '0' AND vintage.inactive = '0' AND vintage.online_store = '1' AND  vintage.stock = '1' AND vintage.item_type > 0 ";
   $result = $mydb->runSql($sql);
-  while ($row = $mydb->getAssoc($result)) {
+  while ($result && ($row = $mydb->getAssoc($result))) {
     $vintage_length = strlen($row["vint_name"]);
     if ($row["sale"] > 0)
       $vintage_length = $vintage_length + 5 + strlen($row["sale"]);

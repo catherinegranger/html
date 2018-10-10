@@ -61,7 +61,7 @@ Prices &amp; times for UPS Ground depend on the distance from the San Francisco 
 
 <h2>Where We Ship To</h2>
 
-<p>Due to new shipping policies from our shipping carrier, we can only ship to Arizona, California, Colorado, Connecticut, District of Columbia, Idaho, Indiana, Iowa, Kansas, Louisiana, Minnesota, Nebraska, New Mexico, Nevada, North Carolina, North Dakota, Oregon, South Dakota, Virginia, Washington, West Virginia, Wisconsin, Wyoming.</p>
+<p>Due to new shipping policies from our shipping carrier, we can only ship to {$ship_states_string}</p>
 
 <p>
 If you live in a state that does not allow direct shipment of wine, you can give us an alternative shipping address in a state where direct shipping is allowed. Contact our customer service at webshop @ bluedanubewine.com or +1 (650) 941-4699 for more information.

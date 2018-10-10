@@ -50,7 +50,7 @@ if (($for == 'removed') || ($for == 'unremoved')  || ($for == 'stockremoved')  |
   $limit = 0;
 }
 
-$sql = "SELECT name, wy_id FROM winery WHERE deleted = 0 ORDER BY sort_name";
+$sql = "SELECT name, wy_id FROM winery WHERE deleted = 0 and inactive = '0' ORDER BY sort_name";
 $result = $mydb->runSql($sql);
 while($row = $mydb->getRow($result)) {
   $wys[] = array('name' => $row[0], 'wy_id' => $row[1]);
