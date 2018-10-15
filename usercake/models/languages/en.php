@@ -113,7 +113,7 @@ $lang = array_merge($lang,array(
 	"CART_DISCOUNT_645"	                => "Order 5 bottles and you'll receive a free sixth mystery bottle.",
 	"CART_DISCOUNT_ERROR"	                => "Sorry, the offer code %m1% is not valid",
 	"CART_ONETIME_DISCOUNT_ERROR"	        => "Sorry, this offer code can only be used once",
-	"CART_DISCOUNT_SHIPPING_WARNING"        => "Free shipping is only for orders of 6 bottles and up to 12 bottles",
+	"CART_DISCOUNT_SHIPPING_WARNING"        => "Free shipping is only for orders of 6 bottles or a multiple of 6 bottles",
         "CART_NEED_ONE_MORE_BOTTLE"             => "You currently have %m1% bottles in your order. Add one more bottle to get free shipping.",
         "CART_NEED_ONE_LESS_BOTTLE"             => "You currently have %m1% bottles in your order. Remove one bottle to get free shipping.",
 	));

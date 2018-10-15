@@ -52,7 +52,7 @@
 <td colspan="1" class="alignRight">${$order.tax}</td></tr>
 <tr><td colspan="4" class="alignRight">Shipping:</td>
 <td colspan="1" class="alignRight">
-{if $wineclub_shipping}{if $order.shipping == 0}<span class="rdd bld">FREE</span>{else}{if $shipping_savings}${$order.shipping}{else}<span class="rdd bld">${$order.shipping}</span>{/if}{/if}{else}${$order.shipping}{/if}
+{if $order.shipping == 0}<span class="rdd bld">FREE</span>{else}${$order.shipping}{/if}
 </td></tr>
 {if $total_shipping_savings}
 <tr><td colspan="5" class="alignRight"><span class="bld">Vino Danubia Shipping Savings: ${$total_shipping_savings}</span></td></tr>

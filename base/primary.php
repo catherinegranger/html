@@ -955,12 +955,10 @@ function discountedShippingBottles($bottle_quantity) { // not used right now
 }
 
 function checkDiscountShippingApplies($bottle_quantity, $discount_type) { 
-  if (($bottle_quantity > 5) && ($bottle_quantity < 13)) {
-    return(TRUE);
-  }
-  else {
-    return(FALSE);
-  }
+  $bottle_mod = $bottle_quantity % 6;
+  if ($bottle_mod == 0) return(TRUE);
+  //if (($bottle_quantity > 5) && ($bottle_quantity < 13)) return (TRUE);
+  return(FALSE);
 }
 
 function computeWineClubShippingBottles($user, $bottle_quantity) { 

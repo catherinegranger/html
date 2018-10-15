@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-08-21 19:48:53
+/* Smarty version 3.1.30, created on 2018-10-15 16:36:05
   from "/var/www/html/smarty/templates/pages/review.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b7c6ca5b84ca2_90309932',
+  'unifunc' => 'content_5bc4c1f57de358_10949560',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c7171ca412edc4787f4af64bab46435af67519f9' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/review.tpl',
-      1 => 1534880909,
+      1 => 1539621348,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/mod_succerrors.tpl' => 1,
   ),
 ),false)) {
-function content_5b7c6ca5b84ca2_90309932 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc4c1f57de358_10949560 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once '/var/www/Smarty/libs/plugins/modifier.truncate.php';
 if (FALSE) {?>
 <div class="alignCenter uchighlight bld">
@@ -102,13 +102,7 @@ if ($_smarty_tpl->tpl_vars['bonus_bottle']->value) {?>
 </td></tr>
 <tr><td colspan="4" class="alignRight">Shipping:</td>
 <td colspan="1" class="alignRight">
-<?php if ($_smarty_tpl->tpl_vars['wineclub_shipping']->value) {
-if ($_smarty_tpl->tpl_vars['order']->value['shipping'] == 0) {?><span class="rdd bld">FREE</span><?php } else {
-if ($_smarty_tpl->tpl_vars['shipping_savings']->value) {?>$<?php echo $_smarty_tpl->tpl_vars['order']->value['shipping'];
-} else { ?><span class="rdd bld">$<?php echo $_smarty_tpl->tpl_vars['order']->value['shipping'];?>
-</span><?php }
-}
-} else { ?>$<?php echo $_smarty_tpl->tpl_vars['order']->value['shipping'];
+<?php if ($_smarty_tpl->tpl_vars['order']->value['shipping'] == 0) {?><span class="rdd bld">FREE</span><?php } else { ?>$<?php echo $_smarty_tpl->tpl_vars['order']->value['shipping'];
 }?>
 </td></tr>
 <?php if ($_smarty_tpl->tpl_vars['total_shipping_savings']->value) {?>
