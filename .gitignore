@@ -25,6 +25,7 @@ reports
 robots.txt
 rss.php
 sitemap.xml
+smarty/templates_c
 sounds
 ssl
 techsheets
