@@ -1,6 +1,6 @@
 {include file="modules/mod_succerrors.tpl"}
 
-<div id="bd-carousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+<div id="bd-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#bd-carousel" data-slide-to="0" class="active"></li>
@@ -28,13 +28,8 @@
 {/section}
 </div>
  
-  <!-- Controls -->
-  <a class="left carousel-control" href="#bd-carousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#bd-carousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+
+
 </div> <!-- Carousel -->
 
 

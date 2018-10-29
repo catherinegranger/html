@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-16 21:58:51
+/* Smarty version 3.1.30, created on 2018-10-29 16:51:28
   from "/var/www/html/smarty/templates/bdindex.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ad51c9ba82cb5_09573768',
+  'unifunc' => 'content_5bd73a90ebd8c8_50853285',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e1d3cda9f2ad3532b7e702cfc5666b5f3650a4b3' => 
     array (
       0 => '/var/www/html/smarty/templates/bdindex.tpl',
-      1 => 1523659342,
+      1 => 1540831857,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ad51c9ba82cb5_09573768 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd73a90ebd8c8_50853285 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once '/var/www/Smarty/libs/plugins/modifier.truncate.php';
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/Smarty/libs/plugins/modifier.date_format.php';
 ?>
@@ -193,12 +193,12 @@ if (isset($_SESSION['userCakeUser'])) {?>
 <li><a href="/wineries/" title="Wineries">Wineries</a>
 <ul>
 <?php
-$__section_bit_8_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_8_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_8_total = $__section_bit_8_loop;
+$__section_bit_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_0_total = $__section_bit_0_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_8_total != 0) {
-for ($__section_bit_8_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_8_iteration <= $__section_bit_8_total; $__section_bit_8_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_0_total != 0) {
+for ($__section_bit_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_0_iteration <= $__section_bit_0_total; $__section_bit_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
 <li><a href="/regions/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
 /" title="<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
@@ -207,8 +207,8 @@ for ($__section_bit_8_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bi
 <?php
 }
 }
-if ($__section_bit_8_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_8_saved;
+if ($__section_bit_0_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_0_saved;
 }
 ?>
 </ul>
@@ -243,12 +243,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_8_saved;
 <li><a href="/wines/" title="Shop">Shop</a>
 <ul>
 <?php
-$__section_bit_9_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_9_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_9_total = $__section_bit_9_loop;
+$__section_bit_1_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_1_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_1_total = $__section_bit_1_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_9_total != 0) {
-for ($__section_bit_9_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_9_iteration <= $__section_bit_9_total; $__section_bit_9_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_1_total != 0) {
+for ($__section_bit_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_1_iteration <= $__section_bit_1_total; $__section_bit_1_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
 <li><a href="/wines/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
 /" title="Shop <?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
@@ -257,8 +257,8 @@ for ($__section_bit_9_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bi
 <?php
 }
 }
-if ($__section_bit_9_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_9_saved;
+if ($__section_bit_1_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_1_saved;
 }
 ?>
 <li><a href="/wines/specials/" title="Special Offers">Special Offers</a></li>
@@ -303,12 +303,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_9_saved;
           <a href="/wineries/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Wineries <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <?php
-$__section_bit_10_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_10_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_10_total = $__section_bit_10_loop;
+$__section_bit_2_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_2_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_2_total = $__section_bit_2_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_10_total != 0) {
-for ($__section_bit_10_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_10_iteration <= $__section_bit_10_total; $__section_bit_10_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_2_total != 0) {
+for ($__section_bit_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_2_iteration <= $__section_bit_2_total; $__section_bit_2_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
             <li><a href="/regions/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
 /" title="<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
@@ -317,8 +317,8 @@ for ($__section_bit_10_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_b
             <?php
 }
 }
-if ($__section_bit_10_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_10_saved;
+if ($__section_bit_2_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_2_saved;
 }
 ?>
           </ul>
@@ -357,12 +357,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_10_saved;
           <a href="/wines/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <?php
-$__section_bit_11_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_11_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_11_total = $__section_bit_11_loop;
+$__section_bit_3_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_3_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_3_total = $__section_bit_3_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_11_total != 0) {
-for ($__section_bit_11_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_11_iteration <= $__section_bit_11_total; $__section_bit_11_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_3_total != 0) {
+for ($__section_bit_3_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_3_iteration <= $__section_bit_3_total; $__section_bit_3_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
             <li><a href="/wines/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
 /" title="Shop <?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
@@ -371,8 +371,8 @@ for ($__section_bit_11_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_b
             <?php
 }
 }
-if ($__section_bit_11_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_11_saved;
+if ($__section_bit_3_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_3_saved;
 }
 ?>
             <li><a href="/wines/specials/" title="Special Offers">Special Offers</a></li>
@@ -413,12 +413,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_11_saved;
 <a href="/wines/" title="Shop"><h3>Shop</h3></a>
 <ul class="footer_menu">
 <?php
-$__section_bit_12_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_12_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_12_total = $__section_bit_12_loop;
+$__section_bit_4_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_4_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_4_total = $__section_bit_4_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_12_total != 0) {
-for ($__section_bit_12_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_12_iteration <= $__section_bit_12_total; $__section_bit_12_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_4_total != 0) {
+for ($__section_bit_4_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_4_iteration <= $__section_bit_4_total; $__section_bit_4_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
 <li><a href="/wines/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
 /" title="Shop <?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
@@ -427,8 +427,8 @@ for ($__section_bit_12_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_b
 <?php
 }
 }
-if ($__section_bit_12_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_12_saved;
+if ($__section_bit_4_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_4_saved;
 }
 ?>
 <li class="last"><a href="/wines/specials/" title="Specials Offers">Specials</a></li>
@@ -487,12 +487,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_12_saved;
       <?php if ($_smarty_tpl->tpl_vars['solve_errors']->value) {?>
       <div class="response bd-error-response" id="slv-error-response">
       <?php
-$__section_bit_13_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_13_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_errors']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_13_total = $__section_bit_13_loop;
+$__section_bit_5_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_5_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_errors']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_5_total = $__section_bit_5_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_13_total != 0) {
-for ($__section_bit_13_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_13_iteration <= $__section_bit_13_total; $__section_bit_13_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_5_total != 0) {
+for ($__section_bit_5_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_5_iteration <= $__section_bit_5_total; $__section_bit_5_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
       <?php echo $_smarty_tpl->tpl_vars['solve_errors']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)];?>
 
@@ -500,8 +500,8 @@ for ($__section_bit_13_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_b
       <?php
 }
 }
-if ($__section_bit_13_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_13_saved;
+if ($__section_bit_5_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_5_saved;
 }
 ?>
       </div>
@@ -511,12 +511,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_13_saved;
       <?php if ($_smarty_tpl->tpl_vars['solve_successes']->value) {?>
       <div class="response bd-success-response" id="slv-success-response">
       <?php
-$__section_bit_14_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_14_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_successes']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_14_total = $__section_bit_14_loop;
+$__section_bit_6_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_6_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_successes']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_6_total = $__section_bit_6_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_14_total != 0) {
-for ($__section_bit_14_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_14_iteration <= $__section_bit_14_total; $__section_bit_14_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_6_total != 0) {
+for ($__section_bit_6_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_6_iteration <= $__section_bit_6_total; $__section_bit_6_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
       <?php echo $_smarty_tpl->tpl_vars['solve_successes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)];?>
 
@@ -524,8 +524,8 @@ for ($__section_bit_14_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_b
       <?php
 }
 }
-if ($__section_bit_14_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_14_saved;
+if ($__section_bit_6_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_6_saved;
 }
 ?>
       </div>
@@ -542,13 +542,13 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_14_saved;
 <!--End slv_embed_signup-->
 </div><!--.follow slv-->
 </div><!--.footer_4-->
-</footer>
-
-
 <div class="bottom_footer">
 &copy; 2002-<?php echo smarty_modifier_date_format(time(),"%Y");?>
  Blue Danube Wine Company. All Rights Reserved.
 </div>
+</footer>
+
+
 
 
 </section>

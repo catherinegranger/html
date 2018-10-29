@@ -384,12 +384,12 @@
 <!--End slv_embed_signup-->
 </div><!--.follow slv-->
 </div><!--.footer_4-->
-</footer>
-
-
 <div class="bottom_footer">
 &copy; 2002-{$smarty.now|date_format:"%Y"} Blue Danube Wine Company. All Rights Reserved.
 </div>
+</footer>
+
+
 
 
 </section>

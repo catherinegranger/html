@@ -52,28 +52,7 @@ $sloveniacounter = 0;
 $turkeycounter = 0;
 $debug_categories = '';
 $debug_chosen_categories = '';
-$debug_items = '';
-$rss_items = '';
-unset($_SESSION['feeditems']);
-unset($_SESSION['blogfeed']);
-$counter = 0;
-$rss = fetch_rss('https://www.bluedanubewine.com/blog/feed/');
-$rssitems = array_slice($rss->items, 0, 50);
-foreach ($rssitems as $item) {
-  $counter++;
-  //$content = $item['content'];
-  //$rss_items .= " ".$content['encoded']." ";
-  $rss_items .= $counter." ".$item['title']." ".$item['category']." ";
-}
 $blogitems = getBlogItems(50);
-foreach ($blogitems as $item) {
-  $debug_items .= "[".$item['title']."]";
-  if ($item['is_news'])
-    $debug_items .= " News ";
-  else 
-    $debug_items .= " No News ";
-  $debug_items .= " ".$item['category']." - ";
-}
 foreach ($blogitems as $item) {
     $debug_categories .= $item['country_category']." ";
 
@@ -110,8 +89,6 @@ shuffle($feeditems);
 $smarty->assign('newsitems',$newsitems);
 $smarty->assign('spotlightitems',$spotlightitems);
 $smarty->assign('feeditems',$feeditems);
-$smarty->assign('debug_items',$debug_items);
-$smarty->assign('rss_items',$rss_items);
 $smarty->assign('debug_categories',$debug_categories);
 $smarty->assign('debug_chosen_categories',$debug_chosen_categories);
 
@@ -150,8 +127,5 @@ if ($all_futures) {
 }
 
 $smarty->assign('events',$events);
-
-$php_version = 'Current PHP version: ' . phpversion();
-$smarty->assign('php_version',$php_version);
 
 ?>
