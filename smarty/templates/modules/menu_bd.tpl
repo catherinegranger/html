@@ -30,7 +30,7 @@
 <li><a href="/travel/books_guides/" title="Books & Guides">Books &amp; Guides</a>
 </ul>
 </li>
-<li><a href="/resources/" title="Resources">Resources</a>
+<li><a href="/resources/grape_varietals/" title="Resources">Resources</a>
 <ul>
 <li><a href="/resources/grape_varietals/" title="Grape Varietals">Grape Varietals</a></li>
 {if !$is_user_from_trade}

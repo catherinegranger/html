@@ -48,7 +48,7 @@
           </ul>
        </li>
        <li class="dropdown">
-          <a href="/resources/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
+          <a href="/resources/grape_varietals/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/resources/grape_varietals/" title="Grape Varietals">Grape Varietals</a></li>
             {if !$is_user_from_trade}
