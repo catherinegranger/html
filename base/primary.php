@@ -37,8 +37,8 @@ define('BDW_ADULT_SIGNATURE', '5');
 define('BDW_CA_TAX_RATE', '9');
 define('BDW_LOCAL_DELIVERY', '10');
 define('BDW_CARD_COST', '5');
-define('BDW_SHIP_STATES', 'Arizona, California, Colorado, Connecticut, District of Columbia, Idaho, Louisiana, Minnesota, Nebraska, New Mexico, Nevada, North Carolina, North Dakota, Oregon,  Virginia, Washington, West Virginia, Wisconsin, Wyoming.');
-define('BDW_NO_SHIP_STATES', 'Alabama, Alaska, Arkansas, Delaware, Florida, Georgia, Hawaii, Illinois, Indiana, Iowa, Kansas, Kentucky, Maine, Maryland, Massachusetts, Michigan,  Mississipi, Missouri, Montana, New Hampshire, New Jersey, New York, Ohio, Oklahoma, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont.');
+define('BDW_SHIP_STATES', 'Arizona, California, Colorado, Connecticut, District of Columbia, Idaho, Louisiana, Minnesota, Nebraska, New Mexico, Nevada, North Dakota, Oregon,  Virginia, Washington, West Virginia, Wisconsin, Wyoming.');
+define('BDW_NO_SHIP_STATES', 'Alabama, Alaska, Arkansas, Delaware, Florida, Georgia, Hawaii, Illinois, Indiana, Iowa, Kansas, Kentucky, Maine, Maryland, Massachusetts, Michigan,  Mississipi, Missouri, Montana, New Hampshire, New Jersey, New York, North Carolina, Ohio, Oklahoma, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont.');
 define('BDW_NO_SHIP_STATES2', 'Alabama, Alaska, Arizona, Arkansas, Colorado, Connecticut, Delaware, Florida, Georgia, Hawwaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota,  Mississipi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, Wisconsin, Wyoming.');
 define('BDW_SHOW_ALL', '0');
 define('BDW_SHOW_WEBSHOP_CA_NY', '1');
@@ -54,7 +54,7 @@ $shipping_states2 = array('AZ', 'CA','CO','CT','DC','FL', 'ID','IN','IA','KS', '
 			       'NE', 'NM','NV','NC','ND','OR','SD', 'VA','WA','WV','WI','WY');
 $shipping_states3 = array('CA','DC','WV');
 $shipping_states = array('AZ', 'CA','CO','CT','DC', 'ID','LA',
-                           'MN', 'NE', 'NV','NM','NC','ND','OR', 'VA','WA','WV','WI','WY');
+                           'MN', 'NE', 'NV','NM','ND','OR', 'VA','WA','WV','WI','WY');
 $shipping_states_club = array('AZ', 'CA','CO','CT','DC', 'FL','GA', 'ID','IL','IN','IA','KS', 'LA','ME',
 			      'MA', 'MI', 'MN','MO', 'MT', 'NE','NJ', 'NV','NM','NC','ND','OH','OR', 'PA', 
                              'SC','SD', 'TN','TX', 'VA','WA','WV','WI','WY');
