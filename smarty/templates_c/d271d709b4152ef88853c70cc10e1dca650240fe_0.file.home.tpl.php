@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-17 00:57:43
+/* Smarty version 3.1.30, created on 2018-10-31 01:44:33
   from "/var/www/html/smarty/templates/pages/home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ad54687d99f79_98052618',
+  'unifunc' => 'content_5bd90901832a67_67928923',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd271d709b4152ef88853c70cc10e1dca650240fe' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/home.tpl',
-      1 => 1523926607,
+      1 => 1540950217,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:modules/mod_succerrors.tpl' => 1,
   ),
 ),false)) {
-function content_5ad54687d99f79_98052618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd90901832a67_67928923 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once '/var/www/Smarty/libs/plugins/modifier.truncate.php';
 $_smarty_tpl->_subTemplateRender("file:modules/mod_succerrors.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 
-<div id="bd-carousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+<div id="bd-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#bd-carousel" data-slide-to="0" class="active"></li>
@@ -74,13 +74,8 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_0_saved;
 ?>
 </div>
  
-  <!-- Controls -->
-  <a class="left carousel-control" href="#bd-carousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#bd-carousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+
+
 </div> <!-- Carousel -->
 
 
