@@ -18,19 +18,19 @@ $random_img4 = rand(0, 2);
 $random_img5 = rand(0, 4);
 
 $gallery[] = array('country' => "Croatia", 
-                   'img' => "croatia".$random_img1."9x4.jpg",
+                   'img' => "croatia".$random_img1."9x4L.jpg",
 		   'description' => "From a tumultuous 20th century, Croatia has emerged with strong, unique wines that define the diversity of their nation and showcase their centuries of viticulture.");
 $gallery[] = array('country' => "Hungary", 
-                   'img' => "hungary".$random_img2."9x4.jpg",
+                   'img' => "hungary".$random_img2."9x4L.jpg",
 		   'description' => "For centuries, Hungary has been home to some of the most prized wines on earth. Again today, this rich winegrowing culture is the source of increasingly exciting wines.");
 $gallery[] = array('country' => "Slovenia", 
-                   'img' => "slovenia".$random_img3."9x4.jpg",
+                   'img' => "slovenia".$random_img3."9x4L.jpg",
 		   'description' => "A country at the crossroads, Slovenia has been quietly making high-class wines for over two millenia with many of the current wineries founded as far back as the 1500's.");
 $gallery[] = array('country' => "Austria", 
-                   'img' => "austria".$random_img4."9x4.jpg",
+                   'img' => "austria".$random_img4."9x4L.jpg",
 		   'description' => "A vigorous wine culture with a distinguished history and plenty of energetic young winemaking talent: Austria has it all.");
 $gallery[] = array('country' => "Georgia", 
-                   'img' => "georgia".$random_img5."9x4.jpg",
+                   'img' => "georgia".$random_img5."9x4L.jpg",
 		   'description' => "At the crossroads of Western Asia and Eastern Europe, Georgia is considered the homeland of viticulture and winemaking.");
 $random_gallery = randomArray($gallery, 5);
 $smarty->assign('gallery',$random_gallery);

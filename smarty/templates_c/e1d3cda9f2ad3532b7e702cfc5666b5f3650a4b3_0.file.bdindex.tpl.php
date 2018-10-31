@@ -1,26 +1,31 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-10-29 16:51:28
+/* Smarty version 3.1.30, created on 2018-10-31 01:30:06
   from "/var/www/html/smarty/templates/bdindex.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5bd73a90ebd8c8_50853285',
+  'unifunc' => 'content_5bd9059e39bae1_81419738',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e1d3cda9f2ad3532b7e702cfc5666b5f3650a4b3' => 
     array (
       0 => '/var/www/html/smarty/templates/bdindex.tpl',
-      1 => 1540831857,
+      1 => 1540949250,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:modules/menu_social.tpl' => 1,
+    'file:modules/menu_user.tpl' => 1,
+    'file:modules/menu_user_p.tpl' => 1,
+    'file:modules/menu_bd.tpl' => 1,
+    'file:modules/menu_bd_p.tpl' => 1,
   ),
 ),false)) {
-function content_5bd73a90ebd8c8_50853285 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd9059e39bae1_81419738 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once '/var/www/Smarty/libs/plugins/modifier.truncate.php';
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/Smarty/libs/plugins/modifier.date_format.php';
 ?>
@@ -53,10 +58,8 @@ echo $_smarty_tpl->tpl_vars['head_title']->value;?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine" type="text/css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script" type="text/css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kalam' type='text/css'>
-<link rel="stylesheet" href="/css/bdstyle.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Kalam|Open+Sans|Roboto|Tangerine|Ubuntu|Source+Sans+Pro|PT+Serif">
+<link rel="stylesheet" href="/css/bdstyle2.css" type="text/css">
 
 <link rel="alternate" href="/blog/feed/index.php" type="application/rss+xml" title="Blue Danube Wine Blog Feed">
 
@@ -91,8 +94,8 @@ echo $_smarty_tpl->tpl_vars['head_title']->value;?>
 </head>
 <body>
 
-<!-- Google Analytics -->
 
+<!-- Google Analytics -->
 <?php echo '<script'; ?>
 >
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -105,293 +108,45 @@ echo $_smarty_tpl->tpl_vars['head_title']->value;?>
 
 <?php echo '</script'; ?>
 >
-
 <!-- End Google Analytics -->
 
 
 
-<header id="main_header">
-<div class="followus_menu followus_colors followus_menu_header_l">
-<ul>
-    <li> <a href="http://www.facebook.com/BlueDanubeWine" title="facebook"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a></li>
-    <li> <a href="https://twitter.com/bluedanubewine" title="twitter"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a></li>
-    <li> <a href="https://instagram.com/bluedanubewine" title="instagram"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x"></i></span></a></li>
-    <li> <a href="https://www.pinterest.com/bluedanubewine/" title="pinterest"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest fa-stack-1x"></i></span></a></li>
-    </ul>
-</div><!-- /.followus_menu_header_l -->
-<div id="top_nav_l" class="topnav_header_l">
-<form class="form-inline" action="/wines/" method="post">
-<ul>
-<?php if (isset($_SESSION['userCakeUser'])) {?>
-<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="/account/" title="My Account">My Account [<?php echo $_SESSION['userCakeUser']['display_name'];?>
-]</a></li>
-<?php } else { ?>
-<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="/login/" title="Login">Login</a></li>
-<li><a href="/signup/" title="Sign Up">Sign Up</a></li>
-<?php }
-if (!$_smarty_tpl->tpl_vars['is_user_from_trade']->value) {?>
-  <li><a href="/cart/" title="My Cart"><img src="/img/all/blue_cart.jpg" alt="Shopping Cart" />My Cart
-  <?php if (($_SESSION['cart_qty'] > 0) && ($_smarty_tpl->tpl_vars['one']->value != 'process')) {?>[<?php echo $_SESSION['cart_qty'];?>
-]<?php } else { ?>[0]<?php }?></a></li>
-  <?php if (($_SESSION['cart_qty'] > 0) && ($_smarty_tpl->tpl_vars['one']->value != 'process')) {?>
-     <li><a href="/checkout/" title="Checkout">Checkout</a></li>
-  <?php }
-}
-if (isset($_SESSION['userCakeUser'])) {?>
-<li><a href="/logout/" title="Logout">Logout</a></li>
-<?php }?>
 
-<li><span class="form-group"><input type="text" class="form-control input-sm" id="search" name="search" size="10" placeholder="Search..."><button type="button" class="btn btn-white btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></button></span></li>
-</ul>
-</form>
-</div><!-- /#top_nav_l -->
 
-<div id="top_nav_p">
-<form class="form-inline" action="/wines/" method="post">
-<ul>
-<?php if (isset($_SESSION['userCakeUser'])) {?>
-<li><a href="/account/" title="My Account">My Account</a></li>
-<?php } else { ?>
-<li><a href="/login/" title="Login">Login</a></li>
-<li><a href="/signup/" title="Sign Up">Sign Up</a></li>
-<?php }
-if (!$_smarty_tpl->tpl_vars['is_user_from_trade']->value) {?>
-<li><a href="/cart/" title="My Cart">My Cart <?php if (($_SESSION['cart_qty'] > 0) && ($_smarty_tpl->tpl_vars['one']->value != 'process')) {?>[<?php echo $_SESSION['cart_qty'];?>
-]<?php } else { ?>[0]<?php }?></a></li>
-<?php if (($_SESSION['cart_qty'] > 0) && ($_smarty_tpl->tpl_vars['one']->value != 'process')) {?>
-<li><a href="/checkout/" title="Checkout">Checkout</a></li>
-<?php }
-}
-if (isset($_SESSION['userCakeUser'])) {?>
-<li><a href="/logout/" title="Logout">Logout</a></li>
-<?php }?>
-<li><input type="text" class="form-control input-sm" name="search" size="5" placeholder="Search Wines..."></li>
-</ul>
-</form>
-</div><!-- /#top_nav_p -->
-
-</header>
-
-<div id="main_container">
-<section id="main_section">
-
-<div id="logonav_l">
-<div class="bdgridnav2">
-<a href="/" title="Blue Danube Wine"><img class="logoimg" src="/img/all/round_logo_small_wave.png" alt="Blue Danube Wine"></a>
+<header id="top_header" class="header_grid">
+<div id="header_social_l" class="menu_left_l"><?php $_smarty_tpl->_subTemplateRender("file:modules/menu_social.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </div>
-<div class="bdgridcontent10">
-<nav class="bdnav">
-<ul>
-<li><a href="/about/" title="About">About</a>
-<ul>
-<li><a href="/about/" title="About Us">About Us</a></li>
-<li><a href="/team/" title="Our Team">Our Team</a></li>
-<li><a href="/contact/" title="Contact Us">Contact Us</a></li>
-<li><a href="/shipping/" title="Shipping Information">Shipping</a></li>
-</ul>
-</li>
-<li><a href="/wineries/" title="Wineries">Wineries</a>
-<ul>
-<?php
-$__section_bit_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_0_total = $__section_bit_0_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_0_total != 0) {
-for ($__section_bit_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_0_iteration <= $__section_bit_0_total; $__section_bit_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+<div id="header_user_l" class="menu_right_l"><?php $_smarty_tpl->_subTemplateRender("file:modules/menu_user.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<li><a href="/regions/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
-/" title="<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
- Wines"><?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
-</a></li>
-<?php
-}
-}
-if ($__section_bit_0_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_0_saved;
-}
+</div>
+<div id="header_user_p"><?php $_smarty_tpl->_subTemplateRender("file:modules/menu_user_p.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-</ul>
-</li>
-<li><a href="/blog/" title="Blog">Blog</a></li>
-<li><a href="/news/" title="News &amp; Events">News &amp; Events</a>
-<ul>
-<li><a href="/news/" title="News">News &amp; Press</a></li>
-<li><a href="/events/" title="Events">Events</a></li>
-<li><a href="/spotlight/" title="Spotlight">Spotlight</a></li>
-</ul>
-</li>
-</li>
-<li><a href="/travel/" title="Travel">Travel</a>
-<ul>
-<li><a href="/travel/" title="Travel News">Travel News</a>
-<li><a href="/travel/wine_tours_routes/" title="Wine Routes">Wine Tours &amp; Routes</a>
-<li><a href="/travel/books_guides/" title="Books & Guides">Books &amp; Guides</a>
-</ul>
-</li>
-<li><a href="/resources/" title="Resources">Resources</a>
-<ul>
-<li><a href="/resources/grape_varietals/" title="Grape Varietals">Grape Varietals</a></li>
-<?php if (!$_smarty_tpl->tpl_vars['is_user_from_trade']->value) {?>
-<li><a href="/trade/" title="For the Trade">For the Trade</a></li>
-<?php }?>
-</ul>
-</li>
-<?php if ($_smarty_tpl->tpl_vars['is_user_from_trade']->value) {?>
-<li><a href="/trade/" title="For the Trade">Trade</a></li>
-<?php } else { ?>
-<li><a href="/wines/" title="Shop">Shop</a>
-<ul>
-<?php
-$__section_bit_1_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_1_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_1_total = $__section_bit_1_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_1_total != 0) {
-for ($__section_bit_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_1_iteration <= $__section_bit_1_total; $__section_bit_1_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+</div>
+</header><!--#top_header -->
+
+<div id="bottom_header">
+<div id="nav_logo_group_l"><!--#nav_logo_group_l -->
+<div id="nav_logo_l" >
+<a href="/" title="Blue Danube Wine"><img class="noborder" src="/img/all/round_logo_transparent.png" alt="Blue Danube Wine"></a>
+</div>
+<nav id="nav_bd_l" ><?php $_smarty_tpl->_subTemplateRender("file:modules/menu_bd.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<li><a href="/wines/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
-/" title="Shop <?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
- Wines"><?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
-</a></li>
-<?php
-}
-}
-if ($__section_bit_1_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_1_saved;
-}
-?>
-<li><a href="/wines/specials/" title="Special Offers">Special Offers</a></li>
-<li><a href="/wines/samplers/" title="Gift Sets">Holiday Gift Sets</a></li>
-<li><a href="/giftcard/" title="Gift Cards">Gift Cards</a></li>
-<li><a href="/wines/books/" title="Books">Books &amp; Misc.</a></li>
-<li><a href="/wines/" title="All Wines">All Wines</a></li>
-</ul>
-</li>
-<?php }?>
-</ul>
 </nav>
-</div><!-- /.bdgridcontent10 -->
-</div><!-- /.logonav_l -->
-
-
-<nav class="main_navigation_p navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" title="Home" href="/"><img style="border:0;" src="/img/all/round_logo_small_wave.png" alt="Blue Danube Wine"> <span class="brand-text">Blue Danube Wine</span></a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/" title="Blue Danube Wine">Home</a></li>
-        <li class="dropdown">
-          <a href="/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/about/" title="About Us">About Us</a></li>
-            <li><a href="/team/" title="Our Team">Our Team</a></li>
-            <li><a href="/contact/" title="Contact Us">Contact Us</a></li>
-            <li><a href="/shipping/" title="Shipping Information">Shipping</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/wineries/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Wineries <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <?php
-$__section_bit_2_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_2_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_2_total = $__section_bit_2_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_2_total != 0) {
-for ($__section_bit_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_2_iteration <= $__section_bit_2_total; $__section_bit_2_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+</div><!-- /#nav_logo_group_l -->
+<nav id="nav_bd_p" class="navbar navbar-default"><?php $_smarty_tpl->_subTemplateRender("file:modules/menu_bd_p.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-            <li><a href="/regions/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
-/" title="<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
- Wines"><?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
-</a></li>
-            <?php
-}
-}
-if ($__section_bit_2_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_2_saved;
-}
-?>
-          </ul>
-        </li>
-        <li><a href="/blog/" title="Blog">Blog</a></li>
-        <li class="dropdown">
-        <a href="/news/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News &amp; Events <span class="caret"></span></a>
-
-          <ul class="dropdown-menu" role="menu">
-          <li><a href="/news/" title="News">News &amp; Press</a></li>
-          <li><a href="/events/" title="Events">Events</a></li>
-          <li><a href="/spotlight/" title="Spotlight">Spotlight</a></li>
-          </ul>
-       </li>
-       <li class="dropdown">
-          <a href="/travel/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Travel <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="/travel/" title="Travel News">Travel News</a></li>
-	    <li><a href="/travel/wine_tours_routes/" title="Wine Routes">Wine Tours &amp; Routes</a>
-	    <li><a href="/travel/books_guides/" title="Books & Guides">Books &amp; Guides</a>
-          </ul>
-       </li>
-       <li class="dropdown">
-          <a href="/resources/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/resources/grape_varietals/" title="Grape Varietals">Grape Varietals</a></li>
-            <?php if (!$_smarty_tpl->tpl_vars['is_user_from_trade']->value) {?>
-            <li><a href="/trade/" title="For the Trade">For the Trade</a></li>
-            <?php }?>
-          </ul>
-        </li>
-       <?php if ($_smarty_tpl->tpl_vars['is_user_from_trade']->value) {?>
-        <li><a href="/trade/" title="For the Trade">Trade</a></li>
-       <?php } else { ?>
-        <li class="dropdown">
-          <a href="/wines/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <?php
-$__section_bit_3_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_3_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_3_total = $__section_bit_3_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_3_total != 0) {
-for ($__section_bit_3_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_3_iteration <= $__section_bit_3_total; $__section_bit_3_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
-?>
-            <li><a href="/wines/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
-/" title="Shop <?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
- Wines"><?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
-</a></li>
-            <?php
-}
-}
-if ($__section_bit_3_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_3_saved;
-}
-?>
-            <li><a href="/wines/specials/" title="Special Offers">Special Offers</a></li>
-            <li><a href="/wines/samplers/" title="Gift Sets">Holiday Gift Sets</a></li>
-            <li><a href="/giftcard/" title="Gift Cards">Gift Cards</a></li>
-            <li><a href="/wines/books/" title="Books">Books &amp; Misc.</a></li>
-            <li><a href="/wines/" title="All Wines">All Wines</a></li>
-          </ul>
-        </li>
-        <?php }?>
-      </ul>
-   </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>
+</div><!--#bottom_header -->
 
+<div id="main_container" class="page_content">
+<section id="main_section">
 <div class="clean"></div>
-
 <?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 
+</section> <!-- /#main_section -->
+</div> <!-- /#main_container -->
 
 <footer id="main_footer">
 <div class="footer_1">
@@ -413,12 +168,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_3_saved;
 <a href="/wines/" title="Shop"><h3>Shop</h3></a>
 <ul class="footer_menu">
 <?php
-$__section_bit_4_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_4_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_4_total = $__section_bit_4_loop;
+$__section_bit_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['ncc']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_0_total = $__section_bit_0_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_4_total != 0) {
-for ($__section_bit_4_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_4_iteration <= $__section_bit_4_total; $__section_bit_4_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_0_total != 0) {
+for ($__section_bit_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_0_iteration <= $__section_bit_0_total; $__section_bit_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
 <li><a href="/wines/<?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['web_name'];?>
 /" title="Shop <?php echo $_smarty_tpl->tpl_vars['ncc']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['full_name'];?>
@@ -427,8 +182,8 @@ for ($__section_bit_4_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bi
 <?php
 }
 }
-if ($__section_bit_4_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_4_saved;
+if ($__section_bit_0_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_0_saved;
 }
 ?>
 <li class="last"><a href="/wines/specials/" title="Specials Offers">Specials</a></li>
@@ -487,12 +242,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_4_saved;
       <?php if ($_smarty_tpl->tpl_vars['solve_errors']->value) {?>
       <div class="response bd-error-response" id="slv-error-response">
       <?php
-$__section_bit_5_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_5_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_errors']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_5_total = $__section_bit_5_loop;
+$__section_bit_1_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_1_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_errors']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_1_total = $__section_bit_1_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_5_total != 0) {
-for ($__section_bit_5_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_5_iteration <= $__section_bit_5_total; $__section_bit_5_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_1_total != 0) {
+for ($__section_bit_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_1_iteration <= $__section_bit_1_total; $__section_bit_1_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
       <?php echo $_smarty_tpl->tpl_vars['solve_errors']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)];?>
 
@@ -500,8 +255,8 @@ for ($__section_bit_5_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bi
       <?php
 }
 }
-if ($__section_bit_5_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_5_saved;
+if ($__section_bit_1_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_1_saved;
 }
 ?>
       </div>
@@ -511,12 +266,12 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_5_saved;
       <?php if ($_smarty_tpl->tpl_vars['solve_successes']->value) {?>
       <div class="response bd-success-response" id="slv-success-response">
       <?php
-$__section_bit_6_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
-$__section_bit_6_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_successes']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_bit_6_total = $__section_bit_6_loop;
+$__section_bit_2_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
+$__section_bit_2_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['solve_successes']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_bit_2_total = $__section_bit_2_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_bit'] = new Smarty_Variable(array());
-if ($__section_bit_6_total != 0) {
-for ($__section_bit_6_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_6_iteration <= $__section_bit_6_total; $__section_bit_6_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
+if ($__section_bit_2_total != 0) {
+for ($__section_bit_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] = 0; $__section_bit_2_iteration <= $__section_bit_2_total; $__section_bit_2_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']++){
 ?>
       <?php echo $_smarty_tpl->tpl_vars['solve_successes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)];?>
 
@@ -524,8 +279,8 @@ for ($__section_bit_6_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_bi
       <?php
 }
 }
-if ($__section_bit_6_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_6_saved;
+if ($__section_bit_2_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_2_saved;
 }
 ?>
       </div>
@@ -542,19 +297,14 @@ $_smarty_tpl->tpl_vars['__smarty_section_bit'] = $__section_bit_6_saved;
 <!--End slv_embed_signup-->
 </div><!--.follow slv-->
 </div><!--.footer_4-->
-<div class="bottom_footer">
+</footer>
+<div id="bottom_footer">
 &copy; 2002-<?php echo smarty_modifier_date_format(time(),"%Y");?>
  Blue Danube Wine Company. All Rights Reserved.
-</div>
-</footer>
+</div><!--#bottom_footer-->
 
 
 
-
-</section>
-
-<a href="http://technorati.com/claim/9p2w484rm5" rel="me" style="color:#ffffff;">Technorati Profile</a>
-</div> <!-- /#main_container -->
 
 <!-- Bing -->
 
@@ -601,6 +351,22 @@ analytics"></a></div></noscript>
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
 ***********************************************/
+<?php echo '</script'; ?>
+>
+
+<?php echo '<script'; ?>
+>
+window.onscroll = function() {stickyFunction()};
+var header = document.getElementById("bottom_header");
+var sticky = header.offsetTop;
+
+function stickyFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
 <?php echo '</script'; ?>
 >
 

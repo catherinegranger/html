@@ -19,10 +19,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine" type="text/css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script" type="text/css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kalam' type='text/css'>
-<link rel="stylesheet" href="/css/bdstyle.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Kalam|Open+Sans|Roboto|Tangerine|Ubuntu|Source+Sans+Pro|PT+Serif">
+<link rel="stylesheet" href="/css/bdstyle2.css" type="text/css">
 
 <link rel="alternate" href="/blog/feed/index.php" type="application/rss+xml" title="Blue Danube Wine Blog Feed">
 
@@ -49,8 +47,8 @@
 </head>
 <body>
 
-<!-- Google Analytics -->
 {literal}
+<!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -61,225 +59,34 @@
   ga('send', 'pageview');
 
 </script>
-{/literal}
 <!-- End Google Analytics -->
 
 
+{/literal}
 
-<header id="main_header">
-<div class="followus_menu followus_colors followus_menu_header_l">
-<ul>
-    <li> <a href="http://www.facebook.com/BlueDanubeWine" title="facebook"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a></li>
-    <li> <a href="https://twitter.com/bluedanubewine" title="twitter"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a></li>
-    <li> <a href="https://instagram.com/bluedanubewine" title="instagram"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x"></i></span></a></li>
-    <li> <a href="https://www.pinterest.com/bluedanubewine/" title="pinterest"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest fa-stack-1x"></i></span></a></li>
-    </ul>
-</div><!-- /.followus_menu_header_l -->
-<div id="top_nav_l" class="topnav_header_l">
-<form class="form-inline" action="/wines/" method="post">
-<ul>
-{if isset($smarty.session.userCakeUser)}
-<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="/account/" title="My Account">My Account [{$smarty.session.userCakeUser.display_name}]</a></li>
-{else}
-<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="/login/" title="Login">Login</a></li>
-<li><a href="/signup/" title="Sign Up">Sign Up</a></li>
-{/if}
-{if !$is_user_from_trade}
-  <li><a href="/cart/" title="My Cart"><img src="/img/all/blue_cart.jpg" alt="Shopping Cart" />My Cart
-  {if ($smarty.session.cart_qty > 0) && ($one != 'process')}[{$smarty.session.cart_qty}]{else}[0]{/if}</a></li>
-  {if ($smarty.session.cart_qty > 0) && ($one != 'process')}
-     <li><a href="/checkout/" title="Checkout">Checkout</a></li>
-  {/if}
-{/if}
-{if isset($smarty.session.userCakeUser)}
-<li><a href="/logout/" title="Logout">Logout</a></li>
-{/if}
 
-<li><span class="form-group"><input type="text" class="form-control input-sm" id="search" name="search" size="10" placeholder="Search..."><button type="button" class="btn btn-white btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></button></span></li>
-</ul>
-</form>
-</div><!-- /#top_nav_l -->
+<header id="top_header" class="header_grid">
+<div id="header_social_l" class="menu_left_l">{include file="modules/menu_social.tpl"}</div>
+<div id="header_user_l" class="menu_right_l">{include file="modules/menu_user.tpl"}</div>
+<div id="header_user_p">{include file="modules/menu_user_p.tpl"}</div>
+</header><!--#top_header -->
 
-<div id="top_nav_p">
-<form class="form-inline" action="/wines/" method="post">
-<ul>
-{if isset($smarty.session.userCakeUser)}
-<li><a href="/account/" title="My Account">My Account</a></li>
-{else}
-<li><a href="/login/" title="Login">Login</a></li>
-<li><a href="/signup/" title="Sign Up">Sign Up</a></li>
-{/if}
-{if !$is_user_from_trade}
-<li><a href="/cart/" title="My Cart">My Cart {if ($smarty.session.cart_qty > 0) && ($one != 'process')}[{$smarty.session.cart_qty}]{else}[0]{/if}</a></li>
-{if ($smarty.session.cart_qty > 0) && ($one != 'process')}
-<li><a href="/checkout/" title="Checkout">Checkout</a></li>
-{/if}
-{/if}
-{if isset($smarty.session.userCakeUser)}
-<li><a href="/logout/" title="Logout">Logout</a></li>
-{/if}
-<li><input type="text" class="form-control input-sm" name="search" size="5" placeholder="Search Wines..."></li>
-</ul>
-</form>
-</div><!-- /#top_nav_p -->
-
-</header>
-
-<div id="main_container">
-<section id="main_section">
-
-<div id="logonav_l">
-<div class="bdgridnav2">
-<a href="/" title="Blue Danube Wine"><img class="logoimg" src="/img/all/round_logo_small_wave.png" alt="Blue Danube Wine"></a>
+<div id="bottom_header">
+<div id="nav_logo_group_l"><!--#nav_logo_group_l -->
+<div id="nav_logo_l" >
+<a href="/" title="Blue Danube Wine"><img class="noborder" src="/img/all/round_logo_transparent.png" alt="Blue Danube Wine"></a>
 </div>
-<div class="bdgridcontent10">
-<nav class="bdnav">
-<ul>
-<li><a href="/about/" title="About">About</a>
-<ul>
-<li><a href="/about/" title="About Us">About Us</a></li>
-<li><a href="/team/" title="Our Team">Our Team</a></li>
-<li><a href="/contact/" title="Contact Us">Contact Us</a></li>
-<li><a href="/shipping/" title="Shipping Information">Shipping</a></li>
-</ul>
-</li>
-<li><a href="/wineries/" title="Wineries">Wineries</a>
-<ul>
-{section name=bit loop=$ncc}
-<li><a href="/regions/{$ncc[bit].web_name}/" title="{$ncc[bit].full_name} Wines">{$ncc[bit].full_name}</a></li>
-{/section}
-</ul>
-</li>
-<li><a href="/blog/" title="Blog">Blog</a></li>
-<li><a href="/news/" title="News &amp; Events">News &amp; Events</a>
-<ul>
-<li><a href="/news/" title="News">News &amp; Press</a></li>
-<li><a href="/events/" title="Events">Events</a></li>
-<li><a href="/spotlight/" title="Spotlight">Spotlight</a></li>
-</ul>
-</li>
-</li>
-<li><a href="/travel/" title="Travel">Travel</a>
-<ul>
-<li><a href="/travel/" title="Travel News">Travel News</a>
-<li><a href="/travel/wine_tours_routes/" title="Wine Routes">Wine Tours &amp; Routes</a>
-<li><a href="/travel/books_guides/" title="Books & Guides">Books &amp; Guides</a>
-</ul>
-</li>
-<li><a href="/resources/" title="Resources">Resources</a>
-<ul>
-<li><a href="/resources/grape_varietals/" title="Grape Varietals">Grape Varietals</a></li>
-{if !$is_user_from_trade}
-<li><a href="/trade/" title="For the Trade">For the Trade</a></li>
-{/if}
-</ul>
-</li>
-{if $is_user_from_trade}
-<li><a href="/trade/" title="For the Trade">Trade</a></li>
-{else}
-<li><a href="/wines/" title="Shop">Shop</a>
-<ul>
-{section name=bit loop=$ncc}
-<li><a href="/wines/{$ncc[bit].web_name}/" title="Shop {$ncc[bit].full_name} Wines">{$ncc[bit].full_name}</a></li>
-{/section}
-<li><a href="/wines/specials/" title="Special Offers">Special Offers</a></li>
-<li><a href="/wines/samplers/" title="Gift Sets">Holiday Gift Sets</a></li>
-<li><a href="/giftcard/" title="Gift Cards">Gift Cards</a></li>
-<li><a href="/wines/books/" title="Books">Books &amp; Misc.</a></li>
-<li><a href="/wines/" title="All Wines">All Wines</a></li>
-</ul>
-</li>
-{/if}
-</ul>
-</nav>
-</div><!-- /.bdgridcontent10 -->
-</div><!-- /.logonav_l -->
+<nav id="nav_bd_l" >{include file="modules/menu_bd.tpl"}</nav>
+</div><!-- /#nav_logo_group_l -->
+<nav id="nav_bd_p" class="navbar navbar-default">{include file="modules/menu_bd_p.tpl"}</nav>
+</div><!--#bottom_header -->
 
-
-<nav class="main_navigation_p navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" title="Home" href="/"><img style="border:0;" src="/img/all/round_logo_small_wave.png" alt="Blue Danube Wine"> <span class="brand-text">Blue Danube Wine</span></a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/" title="Blue Danube Wine">Home</a></li>
-        <li class="dropdown">
-          <a href="/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/about/" title="About Us">About Us</a></li>
-            <li><a href="/team/" title="Our Team">Our Team</a></li>
-            <li><a href="/contact/" title="Contact Us">Contact Us</a></li>
-            <li><a href="/shipping/" title="Shipping Information">Shipping</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/wineries/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Wineries <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            {section name=bit loop=$ncc}
-            <li><a href="/regions/{$ncc[bit].web_name}/" title="{$ncc[bit].full_name} Wines">{$ncc[bit].full_name}</a></li>
-            {/section}
-          </ul>
-        </li>
-        <li><a href="/blog/" title="Blog">Blog</a></li>
-        <li class="dropdown">
-        <a href="/news/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News &amp; Events <span class="caret"></span></a>
-
-          <ul class="dropdown-menu" role="menu">
-          <li><a href="/news/" title="News">News &amp; Press</a></li>
-          <li><a href="/events/" title="Events">Events</a></li>
-          <li><a href="/spotlight/" title="Spotlight">Spotlight</a></li>
-          </ul>
-       </li>
-       <li class="dropdown">
-          <a href="/travel/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Travel <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="/travel/" title="Travel News">Travel News</a></li>
-	    <li><a href="/travel/wine_tours_routes/" title="Wine Routes">Wine Tours &amp; Routes</a>
-	    <li><a href="/travel/books_guides/" title="Books & Guides">Books &amp; Guides</a>
-          </ul>
-       </li>
-       <li class="dropdown">
-          <a href="/resources/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/resources/grape_varietals/" title="Grape Varietals">Grape Varietals</a></li>
-            {if !$is_user_from_trade}
-            <li><a href="/trade/" title="For the Trade">For the Trade</a></li>
-            {/if}
-          </ul>
-        </li>
-       {if $is_user_from_trade}
-        <li><a href="/trade/" title="For the Trade">Trade</a></li>
-       {else}
-        <li class="dropdown">
-          <a href="/wines/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shop <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            {section name=bit loop=$ncc}
-            <li><a href="/wines/{$ncc[bit].web_name}/" title="Shop {$ncc[bit].full_name} Wines">{$ncc[bit].full_name}</a></li>
-            {/section}
-            <li><a href="/wines/specials/" title="Special Offers">Special Offers</a></li>
-            <li><a href="/wines/samplers/" title="Gift Sets">Holiday Gift Sets</a></li>
-            <li><a href="/giftcard/" title="Gift Cards">Gift Cards</a></li>
-            <li><a href="/wines/books/" title="Books">Books &amp; Misc.</a></li>
-            <li><a href="/wines/" title="All Wines">All Wines</a></li>
-          </ul>
-        </li>
-        {/if}
-      </ul>
-   </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
+<div id="main_container" class="page_content">
+<section id="main_section">
 <div class="clean"></div>
-
 {$content}
+</section> <!-- /#main_section -->
+</div> <!-- /#main_container -->
 
 <footer id="main_footer">
 <div class="footer_1">
@@ -384,18 +191,13 @@
 <!--End slv_embed_signup-->
 </div><!--.follow slv-->
 </div><!--.footer_4-->
-<div class="bottom_footer">
-&copy; 2002-{$smarty.now|date_format:"%Y"} Blue Danube Wine Company. All Rights Reserved.
-</div>
 </footer>
+<div id="bottom_footer">
+&copy; 2002-{$smarty.now|date_format:"%Y"} Blue Danube Wine Company. All Rights Reserved.
+</div><!--#bottom_footer-->
 
 
 
-
-</section>
-
-<a href="http://technorati.com/claim/9p2w484rm5" rel="me" style="color:#ffffff;">Technorati Profile</a>
-</div> <!-- /#main_container -->
 
 <!-- Bing -->
 {literal}
@@ -433,6 +235,20 @@ analytics"></a></div></noscript>
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
 ***********************************************/
+</script>
+
+<script>
+window.onscroll = function() {stickyFunction()};
+var header = document.getElementById("bottom_header");
+var sticky = header.offsetTop;
+
+function stickyFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
 </script>
 {/literal}
 
