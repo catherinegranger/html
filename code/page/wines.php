@@ -71,18 +71,18 @@ function getTruncatedNotes($vintage) {
   if ($vintage["low_inventory"] > 0)
     $vintage_length += 16;
   if ($vintage["sale"] > 0)
-    $notes = "WAS ".$vintage["price"]." ".$notes;
+    $notes = "<span class='rdd'>WAS ".$vintage["price"]."</span>"." ".$notes;
   if ($vintage["low_inventory"])
     $notes = "Low inventory. ".$notes;  
   if ($vintage["year"] > 0) { // takes 1 more line
     if ($vintage_length > 35) 
-      $truncation = 55;
+      $truncation = 65;
     else if ($vintage_length > 21)
       $truncation = 65;
   }
   else {
     if ($vintage_length > 35) 
-      $truncation = 60;
+      $truncation = 65;
     else if ($vintage_length > 21)
       $truncation = 75;
   }

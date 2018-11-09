@@ -5,7 +5,7 @@ if ($item_type > 0) $is_vintage = FALSE;
 if ($vintage_name && (($vv_id && $wy_id && $type_id) || $grup || !$is_vintage)) {
   if (($bottles == 0) && $is_vintage) $bottles = 1;
   if ($bottles_per_case == 0) $bottles_per_case = 12;
-  if ($bottles > 1) $grup = 1;
+  if (($bottles > 1) && ($size == 750)) $grup = 1; // not for magnums
   switch($show) {
       case BDW_SHOW_ALL:
 	$view_webshop = 1;

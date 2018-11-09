@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-10-10 01:37:30
+/* Smarty version 3.1.30, created on 2018-10-31 20:24:27
   from "/var/www/html/smarty/templates/pages/shipping.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5bbd57da806106_58233150',
+  'unifunc' => 'content_5bda0f7b49c091_94403363',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1eaa3693f55d4ee4bc3bd1f88fc92d7d4b7e6e14' => 
     array (
       0 => '/var/www/html/smarty/templates/pages/shipping.tpl',
-      1 => 1539135440,
+      1 => 1541017451,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bbd57da806106_58233150 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bda0f7b49c091_94403363 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <article id="shipping">
 <h1>Shipping Information</h1>
@@ -72,15 +72,20 @@ Prices &amp; times for UPS Ground depend on the distance from the San Francisco 
 <td style="border:1px solid #aeaeae;">$25</td>
 <td style="border:1px solid #aeaeae;">$30</td>
 <td style="border:1px solid #aeaeae;">$45</td>
+
 <td style="border:1px solid #aeaeae;">3-5 business days</td>
 </tr>
 </table>
 </p>
-<p>- All prices are for UPS Ground, faster service is available, please request a quote.<br />
-- We only charge our actual cost for packaging materials and shipping fees.<br />
-- We'll send you the tracking number at time of shipment.<br />
-- We charge sales tax as applicable.<br />
-- We generally ship twice a week, on Mondays and mid-week but avoid shipping wines right before the weekend.<br />
+<p>
+<ul class="bd_bullets">
+<li>1 bottle is 750ml. Magnums (1.5L) count as 2 bottles.</li>
+<li>All prices are for UPS Ground, faster service is available, please request a quote.</li>
+<li>We only charge our actual cost for packaging materials and shipping fees.</li>
+<li>We'll send you the tracking number at time of shipment.</li>
+<li>We charge sales tax as applicable.</li>
+<li>We generally ship twice a week, on Mondays and mid-week but avoid shipping wines right before the weekend.</li>
+</ul>
 </p>
 
 

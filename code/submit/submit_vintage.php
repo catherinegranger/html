@@ -4,7 +4,7 @@ $is_vintage = TRUE;
 if ($item_type > 0) $is_vintage = FALSE;
 if ($vintage_name && (($v_id_1 && $wy_id && $type_id) || $grup || !$is_vintage)) {
   if (($bottles == 0) && $is_vintage) $bottles = 1;
-  if ($bottles > 1) $grup = 1;
+  if (($bottles > 1) && ($size == 750)) $grup = 1; // not for magnums
   if (!$bottles_per_case) $bottles_per_case = 12;
   if (!$country_id) $country_id = 0;
   if (!$year) $year = 0;

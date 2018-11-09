@@ -106,7 +106,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $new_arrivals[bit].sale > 0}{if $new_arrivals[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$new_arrivals[bit].sale}</span> {else}<span class="rdd">${$new_arrivals[bit].sale}</span> {/if} {elseif $new_arrivals[bit].price > 0}${$new_arrivals[bit].price} {/if}
+{if $new_arrivals[bit].sale > 0}{if $new_arrivals[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$new_arrivals[bit].sale}</span> {else}<span class="bld rdd">${$new_arrivals[bit].sale}</span> {/if} {elseif $new_arrivals[bit].price > 0}${$new_arrivals[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/new/" title="More New Arrivals"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -157,7 +157,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $specials[bit].sale > 0}{if $specials[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$specials[bit].sale}</span> {else}<span class="rdd">${$specials[bit].sale}</span> {/if} {elseif $specials[bit].price > 0}${$specials[bit].price} {/if}
+{if $specials[bit].sale > 0}{if $specials[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$specials[bit].sale}</span> {else}<span class="bld rdd">${$specials[bit].sale}</span> {/if} {elseif $specials[bit].price > 0}${$specials[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/specials/" title="More Special Offers"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -208,7 +208,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $organic_wines[bit].sale > 0}{if $organic_wines[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$organic_wines[bit].sale}</span> {else}<span class="rdd">${$organic_wines[bit].sale}</span> {/if} {elseif $organic_wines[bit].price > 0}${$organic_wines[bit].price} {/if}
+{if $organic_wines[bit].sale > 0}{if $organic_wines[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$organic_wines[bit].sale}</span> {else}<span class="bld rdd">${$organic_wines[bit].sale}</span> {/if} {elseif $organic_wines[bit].price > 0}${$organic_wines[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/organic/" title="More Organic"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -259,7 +259,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $austria[bit].sale > 0}{if $austria[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$austria[bit].sale}</span> {else}<span class="rdd">${$austria[bit].sale}</span> {/if} {elseif $austria[bit].price > 0}${$austria[bit].price} {/if}
+{if $austria[bit].sale > 0}{if $austria[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$austria[bit].sale}</span> {else}<span class="bld rdd">${$austria[bit].sale}</span> {/if} {elseif $austria[bit].price > 0}${$austria[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/austria/" title="More Wines from Austria"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -310,7 +310,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $bosnia[bit].sale > 0}{if $bosnia[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$bosnia[bit].sale}</span> {else}<span class="rdd">${$bosnia[bit].sale}</span> {/if} {elseif $bosnia[bit].price > 0}${$bosnia[bit].price} {/if}
+{if $bosnia[bit].sale > 0}{if $bosnia[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$bosnia[bit].sale}</span> {else}<span class="bld rdd">${$bosnia[bit].sale}</span> {/if} {elseif $bosnia[bit].price > 0}${$bosnia[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/bosnia_herzegovina/" title="More Wines from Bosnia Herzegovina"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -367,7 +367,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $wines[bit].sale > 0}{if $wines[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$wines[bit].sale}</span> {else}<span class="rdd">${$wines[bit].sale}</span> {/if} {elseif $wines[bit].price > 0}${$wines[bit].price} {/if}
+{if $wines[bit].sale > 0}{if $wines[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$wines[bit].sale}</span> {else}<span class="bld rdd">${$wines[bit].sale}</span> {/if} {elseif $wines[bit].price > 0}${$wines[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button> 
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -423,7 +423,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $croatia[bit].sale > 0}{if $croatia[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$croatia[bit].sale}</span> {else}<span class="rdd">${$croatia[bit].sale}</span> {/if} {elseif $croatia[bit].price > 0}${$croatia[bit].price} {/if}
+{if $croatia[bit].sale > 0}{if $croatia[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$croatia[bit].sale}</span> {else}<span class="bld rdd">${$croatia[bit].sale}</span> {/if} {elseif $croatia[bit].price > 0}${$croatia[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/croatia/" title="More Wines from Croatia"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -474,7 +474,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $georgia[bit].sale > 0}{if $georgia[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$georgia[bit].sale}</span> {else}<span class="rdd">${$georgia[bit].sale}</span> {/if} {elseif $georgia[bit].price > 0}${$georgia[bit].price} {/if}
+{if $georgia[bit].sale > 0}{if $georgia[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$georgia[bit].sale}</span> {else}<span class="bld rdd">${$georgia[bit].sale}</span> {/if} {elseif $georgia[bit].price > 0}${$georgia[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/georgia/" title="More Wines from Georgia"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -525,7 +525,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $hungary[bit].sale > 0}{if $hungary[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$hungary[bit].sale}</span> {else}<span class="rdd">${$hungary[bit].sale}</span> {/if} {elseif $hungary[bit].price > 0}${$hungary[bit].price} {/if}
+{if $hungary[bit].sale > 0}{if $hungary[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$hungary[bit].sale}</span> {else}<span class="bld rdd">${$hungary[bit].sale}</span> {/if} {elseif $hungary[bit].price > 0}${$hungary[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/hungary/" title="More Wines from Hungary"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -576,7 +576,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $serbia[bit].sale > 0}{if $serbia[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$serbia[bit].sale}</span> {else}<span class="rdd">${$serbia[bit].sale}</span> {/if} {elseif $serbia[bit].price > 0}${$serbia[bit].price} {/if}
+{if $serbia[bit].sale > 0}{if $serbia[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$serbia[bit].sale}</span> {else}<span class="bld rdd">${$serbia[bit].sale}</span> {/if} {elseif $serbia[bit].price > 0}${$serbia[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/serbia/" title="More Wines from Serbia"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -627,7 +627,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $slovenia[bit].sale > 0}{if $slovenia[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$slovenia[bit].sale}</span> {else}<span class="rdd">${$slovenia[bit].sale}</span> {/if} {elseif $slovenia[bit].price > 0}${$slovenia[bit].price} {/if}
+{if $slovenia[bit].sale > 0}{if $slovenia[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$slovenia[bit].sale}</span> {else}<span class="bld rdd">${$slovenia[bit].sale}</span> {/if} {elseif $slovenia[bit].price > 0}${$slovenia[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/slovenia/" title="More Wines from Slovenia"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -678,7 +678,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $turkey[bit].sale > 0}{if $turkey[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$turkey[bit].sale}</span> {else}<span class="rdd">${$turkey[bit].sale}</span> {/if} {elseif $turkey[bit].price > 0}${$turkey[bit].price} {/if}
+{if $turkey[bit].sale > 0}{if $turkey[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$turkey[bit].sale}</span> {else}<span class="bld rdd">${$turkey[bit].sale}</span> {/if} {elseif $turkey[bit].price > 0}${$turkey[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/turkey/" title="More Wines from Turkey"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -731,7 +731,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $other_wines[bit].sale > 0}{if $other_wines[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$other_wines[bit].sale}</span> {else}<span class="rdd">${$other_wines[bit].sale}</span> {/if} {elseif $other_wines[bit].price > 0}${$other_wines[bit].price} {/if}
+{if $other_wines[bit].sale > 0}{if $other_wines[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$other_wines[bit].sale}</span> {else}<span class="bld rdd">${$other_wines[bit].sale}</span> {/if} {elseif $other_wines[bit].price > 0}${$other_wines[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/samplers/" title="More Samplers}"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -786,7 +786,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_bottle_info_text_notes -->
 {/if}
 <div class="mod_bottle_info_text_buy">
-{if $magnums[bit].sale > 0}{if $magnums[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$magnums[bit].sale}</span> {else}<span class="rdd">${$magnums[bit].sale}</span> {/if} {elseif $magnums[bit].price > 0}${$magnums[bit].price} {/if}
+{if $magnums[bit].sale > 0}{if $magnums[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$magnums[bit].sale}</span> {else}<span class="bld rdd">${$magnums[bit].sale}</span> {/if} {elseif $magnums[bit].price > 0}${$magnums[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/magnums/" title="More Magnums"><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 </div><!-- /.mod_bottle_info_text -->
@@ -836,7 +836,7 @@ To ensure your wine arrives by December 24th, 2016, order by 12/14 for the East 
 </div><!-- /.mod_other_item_info_text_notes -->
 {/if}
 <div class="mod_other_item_info_text_buy">
-{if $other_items[bit].sale > 0}{if $other_items[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$other_items[bit].sale}</span> {else}<span class="rdd">${$other_items[bit].sale}</span> {/if} {elseif $other_items[bit].price > 0}${$other_items[bit].price} {/if}
+{if $other_items[bit].sale > 0}{if $other_items[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$other_items[bit].sale}</span> {else}<span class="bld rdd">${$other_items[bit].sale}</span> {/if} {elseif $other_items[bit].price > 0}${$other_items[bit].price} {/if}
 <button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>  {if $smarty.section.bit.last && ($search_criteria == "all")} <a href="/wines/others/" title="More Books & Misc."><span class="right_arrow fa-2x"><i class="fa fa-chevron-right" fa-5x"></i></span></a>{/if}
 </div><!-- /.mod_other_item_info_text_buy -->
 </div><!-- /.mod_other_item_info_text -->

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-27 17:13:17
+/* Smarty version 3.1.30, created on 2018-11-01 00:48:48
   from "/var/www/html/smarty/templates/modules/mod_wines.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae35a2deb4212_65222410',
+  'unifunc' => 'content_5bda4d702137b6_23541975',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5d9cdf5f97223eb91b0fe8183495b0c37f557f71' => 
     array (
       0 => '/var/www/html/smarty/templates/modules/mod_wines.tpl',
-      1 => 1524848368,
+      1 => 1541033324,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae35a2deb4212_65222410 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bda4d702137b6_23541975 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once '/var/www/Smarty/libs/plugins/modifier.truncate.php';
 $__section_bit_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_bit']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit'] : false;
 $__section_bit_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['wines']->value) ? count($_loop) : max(0, (int) $_loop));
@@ -116,8 +116,8 @@ echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__sma
 </a>
 <?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['notes'] || ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0)) {?>
 <div class="mod_bottle_info_text_notes">
-<?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0 && $_smarty_tpl->tpl_vars['can_show_retail_price']->value) {?> WAS $<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'];?>
-. <?php }
+<?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0 && $_smarty_tpl->tpl_vars['can_show_retail_price']->value) {?><span class="rdd"> WAS $<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'];?>
+</span>. <?php }
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['low_inventory']) {?> Low inventory. <?php }
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['vintage_length'] > 35 && $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['year'] > '0') {
 echo smarty_modifier_truncate(preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['notes']),55,"...",true);?>
@@ -141,8 +141,8 @@ echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__sma
 if ($_smarty_tpl->tpl_vars['can_show_retail_price']->value) {?>
 <div class="mod_bottle_info_text_buy">
 <?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0) {
-if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] < 10) {?><span class="rdd" style="padding-left:0.1em;">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
-</span> <?php } else { ?><span class="rdd">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
+if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] < 10) {?><span class="bld rdd" style="padding-left:0.1em;">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
+</span> <?php } else { ?><span class="bld rdd">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
 </span> <?php }?> <?php } elseif ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'] > 0) {?>$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'];?>
  <?php }
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'] > 0) {
@@ -178,8 +178,8 @@ if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smar
 </a>
 <?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['notes'] || ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0)) {?>
 <div class="mod_other_item_info_text_notes">
-<?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0) {?> WAS $<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'];?>
-. <?php }
+<?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0) {?><span class="rdd"> WAS $<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'];?>
+</span>. <?php }
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['low_inventory']) {?> Low inventory. <?php }
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['vintage_length'] > 35 && $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['year'] > '0') {
 echo smarty_modifier_truncate(preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['notes']),55,"...",true);?>
@@ -199,7 +199,7 @@ echo smarty_modifier_truncate(preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_
 <div class="mod_other_item_info_text_buy">
 <?php if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] > 0) {
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'] < 10) {?><span class="rdd" style="padding-left:0.1em;">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
-</span> <?php } else { ?><span class="rdd">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
+</span> <?php } else { ?><span class="bld rdd">$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['sale'];?>
 </span> <?php }?> <?php } elseif ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'] > 0) {?>$<?php echo $_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'];?>
  <?php }
 if ($_smarty_tpl->tpl_vars['wines']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_bit']->value['index'] : null)]['price'] > 0) {

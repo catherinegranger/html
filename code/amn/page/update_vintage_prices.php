@@ -6,7 +6,7 @@ if (!$_SESSION["userCakeUser"] || !$_SESSION["userCakeUser"]["isAdmin"]) {
   exit;
 }
 
-$do_ca = FALSE;
+$do_ca = TRUE;
 
 $file_dir = dirname(__FILE__)."/";
 $vintages = array();

@@ -47,15 +47,20 @@ Prices &amp; times for UPS Ground depend on the distance from the San Francisco 
 <td style="border:1px solid #aeaeae;">$25</td>
 <td style="border:1px solid #aeaeae;">$30</td>
 <td style="border:1px solid #aeaeae;">$45</td>
+
 <td style="border:1px solid #aeaeae;">3-5 business days</td>
 </tr>
 </table>
 </p>
-<p>- All prices are for UPS Ground, faster service is available, please request a quote.<br />
-- We only charge our actual cost for packaging materials and shipping fees.<br />
-- We'll send you the tracking number at time of shipment.<br />
-- We charge sales tax as applicable.<br />
-- We generally ship twice a week, on Mondays and mid-week but avoid shipping wines right before the weekend.<br />
+<p>
+<ul class="bd_bullets">
+<li>1 bottle is 750ml. Magnums (1.5L) count as 2 bottles.</li>
+<li>All prices are for UPS Ground, faster service is available, please request a quote.</li>
+<li>We only charge our actual cost for packaging materials and shipping fees.</li>
+<li>We'll send you the tracking number at time of shipment.</li>
+<li>We charge sales tax as applicable.</li>
+<li>We generally ship twice a week, on Mondays and mid-week but avoid shipping wines right before the weekend.</li>
+</ul>
 </p>
 
 

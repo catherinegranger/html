@@ -33,7 +33,7 @@
 </a>
 {if $wines[bit].notes || ($wines[bit].sale > 0)}
 <div class="mod_bottle_info_text_notes">
-{if $wines[bit].sale > 0 && $can_show_retail_price} WAS ${$wines[bit].price}. {/if}
+{if $wines[bit].sale > 0 && $can_show_retail_price}<span class="rdd"> WAS ${$wines[bit].price}</span>. {/if}
 {if $wines[bit].low_inventory} Low inventory. {/if}
 {if $wines[bit].vintage_length > 35 && $wines[bit].year > '0'}
 {$wines[bit].notes|strip_tags|truncate:55:"...":true} 
@@ -47,7 +47,7 @@
 {/if}
 {if $can_show_retail_price}
 <div class="mod_bottle_info_text_buy">
-{if $wines[bit].sale > 0}{if $wines[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$wines[bit].sale}</span> {else}<span class="rdd">${$wines[bit].sale}</span> {/if} {elseif $wines[bit].price > 0}${$wines[bit].price} {/if}
+{if $wines[bit].sale > 0}{if $wines[bit].sale < 10}<span class="bld rdd" style="padding-left:0.1em;">${$wines[bit].sale}</span> {else}<span class="bld rdd">${$wines[bit].sale}</span> {/if} {elseif $wines[bit].price > 0}${$wines[bit].price} {/if}
 {if $wines[bit].price > 0}{if $wines[bit].stock > 0}&nbsp;<button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>{else}&nbsp; Sold out{/if}{else}Sorry, not available{/if}
 </div><!-- /.mod_bottle_info_text_buy -->
 {/if}
@@ -72,7 +72,7 @@
 </a>
 {if $wines[bit].notes || ($wines[bit].sale > 0)}
 <div class="mod_other_item_info_text_notes">
-{if $wines[bit].sale > 0} WAS ${$wines[bit].price}. {/if}
+{if $wines[bit].sale > 0}<span class="rdd"> WAS ${$wines[bit].price}</span>. {/if}
 {if $wines[bit].low_inventory} Low inventory. {/if}
 {if $wines[bit].vintage_length > 35 && $wines[bit].year > '0'}
 {$wines[bit].notes|strip_tags|truncate:55:"...":true} 
@@ -85,7 +85,7 @@
 </div><!-- /.mod_other_item_info_text_notes -->
 {/if}
 <div class="mod_other_item_info_text_buy">
-{if $wines[bit].sale > 0}{if $wines[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$wines[bit].sale}</span> {else}<span class="rdd">${$wines[bit].sale}</span> {/if} {elseif $wines[bit].price > 0}${$wines[bit].price} {/if}
+{if $wines[bit].sale > 0}{if $wines[bit].sale < 10}<span class="rdd" style="padding-left:0.1em;">${$wines[bit].sale}</span> {else}<span class="bld rdd">${$wines[bit].sale}</span> {/if} {elseif $wines[bit].price > 0}${$wines[bit].price} {/if}
 {if $wines[bit].price > 0}{if $wines[bit].stock > 0}&nbsp;<button class="btn btn-xs btn-primary" type="submit" title="Add to Cart">Add to Cart</button>{else}&nbsp; Sold out{/if}{else}Sorry, not available{/if}
 </div><!-- /.mod_other_item_info_text_buy -->
 </div><!-- /.mod_other_item_info_text -->
