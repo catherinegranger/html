@@ -26,6 +26,7 @@ define('BDW_DISCOUNT_TYPE_ONETIME_CLUB', '6');
 define('BDW_DISCOUNT_TYPE_COUNTRY', '7');
 define('BDW_DISCOUNT_TYPE_ONETIME_CB645', '8');
 define('BDW_DISCOUNT_TYPE_TYPE', '9');
+define('BDW_DISCOUNT_TYPE_FAMILY', '10');
 
 define('BDW_DISCOUNT_APPLY_TO_REGULAR', '0');
 define('BDW_DISCOUNT_APPLY_TO_SPECIALS', '1');
@@ -902,6 +903,56 @@ function computeAdultSignature($bottle_quantity, $ship_state, $ship_method) {
   if (($bottle_quantity > 0) && ($ship_method == "UPS Ground"))
     $adult_signature = BDW_ADULT_SIGNATURE;
   return($adult_signature);
+}
+
+//Retrieve California price
+function getCATradePrice($vintage_id) {
+  global $mydb;
+  $ca_trade_price = 0;
+  $mysqli = $mydb->getConnection();
+  $sql = "SELECT ca_wholesale_price FROM vintage WHERE vint_id = ? LIMIT 1";
+  $stmt = $mysqli->prepare($sql);	
+  $stmt->bind_param("i", $vintage_id);
+  $stmt->execute();
+  $stmt->bind_result($ca_wholesale_price);
+  if ($stmt->fetch()) {
+    $ca_trade_price = $ca_wholesale_price;
+  }
+  $stmt->close();
+  return ($ca_trade_price);
+}
+
+//Retrieve Discount information 
+function fetchDiscountFromId($discount_id) {
+  global $mydb;
+  $row = NULL;
+  $mysqli = $mydb->getConnection();
+  $sql = "SELECT name, type, apply_to, min_bottles, discount_from, discount_to, type_value, type_value_string, value, percent FROM order_discount WHERE discount_id = ? LIMIT 1";
+  $stmt = $mysqli->prepare($sql);	
+  $stmt->bind_param("i", $discount_id);
+  $stmt->execute();
+  $stmt->bind_result($name, $type, $apply_to, $min_bottles, $discount_from, $discount_to, $type_value, $type_value_string, $value, $percent);
+  if ($stmt->fetch()){
+    $row = array('discount_id' => $discount_id, 'discount_name' => $name, 'discount_type' => $type, 'apply_to' => $apply_to, 'min_bottles' => $min_bottles, 'discount_from' => $discount_from, 'discount_to' => $discount_to, 'type_value' => $type_value, 'type_value_string' => $type_value_string, 'value' => $value, 'percent' => $percent);
+  }
+  $stmt->close();
+  return ($row);
+}
+
+function fetchDiscountFromName($discount_name) {
+  global $mydb;
+  $row = NULL;
+  $mysqli = $mydb->getConnection();
+  $sql = "SELECT discount_id, name, type, apply_to, min_bottles, discount_from, discount_to, type_value, type_value_string, value, percent FROM order_discount WHERE name = ? LIMIT 1";
+  $stmt = $mysqli->prepare($sql);	
+  $stmt->bind_param("s", $discount_name);
+  $stmt->execute();
+  $stmt->bind_result($discount_id, $name, $type, $apply_to, $min_bottles, $discount_from, $discount_to, $type_value, $type_value_string, $value, $percent);
+  if ($stmt->fetch()) {
+    $row = array('discount_id' => $discount_id, 'discount_name' => $name, 'discount_type' => $type, 'apply_to' => $apply_to, 'min_bottles' => $min_bottles, 'discount_from' => $discount_from, 'discount_to' => $discount_to, 'type_value' => $type_value, 'type_value_string' => $type_value_string, 'value' => $value, 'percent' => $percent);
+  }
+  $stmt->close();
+  return ($row);
 }
 
 function getDiscountType($discount_id) {

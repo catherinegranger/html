@@ -24,6 +24,7 @@
 	<option value="5"{if $discount_type == '5'} selected{/if}>One Time</option>
 	<option value="6"{if $discount_type == '6'} selected{/if}>One Time Club</option>
 	<option value="8"{if $discount_type == '8'} selected{/if}>One Time Club 6 for 5</option>
+        <option value="10"{if $discount_type == '10'} selected{/if}>Friends and Family</option>
 </select>
 </td>
 <tr>

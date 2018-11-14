@@ -267,8 +267,18 @@ if ($_SESSION["cart"]) {
 	if ($discount_type == BDW_DISCOUNT_TYPE_COUNTRY) {
       $country = getVintageCountry($cartitem["vint_id"]);
 	}
-	if ($discount_type == BDW_DISCOUNT_TYPE_TYPE) {
+	else if ($discount_type == BDW_DISCOUNT_TYPE_TYPE) {
 	  $wine_type = getWineType($cartitem["vint_id"]);
+	}
+    else if ($discount_type == BDW_DISCOUNT_TYPE_FAMILY) {
+	  $item_CA_price = getCATradePrice($cartitem["vint_id"]);
+	  if ($item_CA_price > 0) {
+	    $item_base_price = $item_CA_price;
+	    if ($discount_percent > 0) {
+	      $item_discount = number_format((($item_base_price*$discount_percent) / 100), 2);
+	      $item_price = fixCurrency($item_base_price - $item_discount);
+	    }
+	  }
 	}
 	if ($discount_id > 0) { 
 	  if (($discount_min_bottles <= $discount_bottle_quantity) && 

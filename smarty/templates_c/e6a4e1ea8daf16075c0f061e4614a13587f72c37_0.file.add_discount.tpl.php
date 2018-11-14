@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-23 22:35:33
+/* Smarty version 3.1.30, created on 2018-11-14 01:28:08
   from "/var/www/html/smarty/templates/amn/pages/add_discount.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ade5fb5b41054_64622439',
+  'unifunc' => 'content_5beb7a2812d6e2_90574269',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e6a4e1ea8daf16075c0f061e4614a13587f72c37' => 
     array (
       0 => '/var/www/html/smarty/templates/amn/pages/add_discount.tpl',
-      1 => 1523659342,
+      1 => 1542158642,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ade5fb5b41054_64622439 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5beb7a2812d6e2_90574269 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['two']->value == 'success') {?><div class="error">Your discount has been succesfully entered.</div><?php }
 if ($_smarty_tpl->tpl_vars['two']->value == 'no_name') {?><div class="error">Discount name missing</div><?php }
 if ($_smarty_tpl->tpl_vars['two']->value == 'updated') {?><div class="error">Discount updated</div><?php }?>
@@ -48,6 +48,7 @@ if ($_smarty_tpl->tpl_vars['two']->value == 'updated') {?><div class="error">Dis
 	<option value="5"<?php if ($_smarty_tpl->tpl_vars['discount_type']->value == '5') {?> selected<?php }?>>One Time</option>
 	<option value="6"<?php if ($_smarty_tpl->tpl_vars['discount_type']->value == '6') {?> selected<?php }?>>One Time Club</option>
 	<option value="8"<?php if ($_smarty_tpl->tpl_vars['discount_type']->value == '8') {?> selected<?php }?>>One Time Club 6 for 5</option>
+        <option value="10"<?php if ($_smarty_tpl->tpl_vars['discount_type']->value == '10') {?> selected<?php }?>>Friends and Family</option>
 </select>
 </td>
 <tr>
